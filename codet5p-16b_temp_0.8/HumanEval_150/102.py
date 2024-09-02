@@ -1,0 +1,19 @@
+
+def x_or_y(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    for x_or_y(15, 8, 5) == 5
+    
+    """
+
+    assert type(n) == int, 'n must be an integer.'
+    assert type(x) == int, 'x must be an integer.'
+    assert type(y) == int, 'y must be an integer.'
+    if n == x:
+        return x
+    else:
+        return y
+

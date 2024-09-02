@@ -1,0 +1,23 @@
+
+
+def modp(n: int, p: int):
+    """Return 2^n modulo p (be aware of numerics).
+    >>> modp(3, 5)
+    3
+    >>> modp(1101, 101)
+    2
+    >>> modp(0, 101)
+    1
+    >>> modp(3, 11)
+    8
+    >>> modp(100, 101)
+    1
+    """
+
+    assert (n >= 0), "The exponent n must be non-negative."
+    assert (p > 2), "The modulus p must be larger than 2."
+    if n == 0:
+        return 1
+    else:
+        return (modp(n // 2, p) ** 2) % p
+

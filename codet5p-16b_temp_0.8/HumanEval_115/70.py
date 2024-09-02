@@ -1,0 +1,71 @@
+
+def max_fill(grid, capacity):
+    import math
+    """
+    You are given a rectangular grid of wells. Each row represents a single well,
+    and each 1 in a row represents a single unit of water.
+    Each well has a corresponding bucket that can be used to extract water from it, 
+    and all buckets have the same capacity.
+    Your task is to use the buckets to empty the wells.
+    Output the number of times you need to lower the buckets.
+
+    Example 1:
+        Input: 
+            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+            bucket_capacity : 1
+        Output: 6
+
+    Example 2:
+        Input: 
+            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
+            bucket_capacity : 2
+        Output: 5
+    
+    Example 3:
+        Input: 
+            grid : [[0,0,0], [0,0,0]]
+            bucket_capacity : 5
+        Output: 0
+
+    Constraints:
+        * all wells have the same length
+        * 1 <= grid.length <= 10^2
+        * 1 <= grid[:,1].length <= 10^2
+        * grid[i][j] -> 0 | 1
+        * 1 <= capacity <= 10
+    """
+
+    def fill_well(well, buckets):
+        for i, bucket in enumerate(buckets):
+            if bucket == 0:
+                continue
+            elif bucket == well:
+                buckets[i] = 0
+                return i
+        return math.inf
+
+    well_length = len(grid[0])
+    well_count = len(grid)
+    bucket_count = len(grid[0][0])
+
+    buckets = [0] * bucket_count
+    times = 0
+
+    while not (well_length == 0 and well_count == 0):
+        well_index = 0
+        for i in range(well_count):
+            row = grid[i]
+            well = row[well_index]
+            index = fill_well(well, buckets)
+            if index == math.inf:
+                continue
+            buckets[index] -= 1
+            if buckets[index] == 0:
+                well_index += 1
+            elif well_index == well_length - 1:
+                well_length -= 1
+            else:
+                well_index += 1
+        times += 1
+
+    

@@ -1,0 +1,16 @@
+from typing import List
+
+
+def sort_numbers(numbers: str) -> str:
+    """ Input is a space-delimited string of numberals from 'zero' to 'nine'.
+    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.
+    Return the string with numbers sorted from smallest to largest
+    >>> sort_numbers('three one five')
+    'one three five'
+    """
+    numbers_list = numbers.split(' ')
+    for i in range(len(numbers_list) - 1):
+        for j in range(len(numbers_list) - i - 1):
+            if numbers_list[j] > numbers_list[j + 1]:
+                numbers_list[j], numbers_list[j + 1] = numbers_list[j + 1], numbers_list[j]
+    return " ".join(numbers_list

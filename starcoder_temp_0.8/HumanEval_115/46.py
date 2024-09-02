@@ -1,0 +1,75 @@
+
+def max_fill(grid, capacity):
+    import math
+    """
+    You are given a rectangular grid of wells. Each row represents a single well,
+    and each 1 in a row represents a single unit of water.
+    Each well has a corresponding bucket that can be used to extract water from it, 
+    and all buckets have the same capacity.
+    Your task is to use the buckets to empty the wells.
+    Output the number of times you need to lower the buckets.
+
+    Example 1:
+        Input: 
+            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
+            bucket_capacity : 1
+        Output: 6
+
+    Example 2:
+        Input: 
+            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
+            bucket_capacity : 2
+        Output: 5
+    
+    Example 3:
+        Input: 
+            grid : [[0,0,0], [0,0,0]]
+            bucket_capacity : 5
+        Output: 0
+
+    Constraints:
+        * all wells have the same length
+        * 1 <= grid.length <= 10^2
+        * 1 <= grid[:,1].length <= 10^2
+        * grid[i][j] -> 0 | 1
+        * 1 <= capacity <= 10
+    """
+
+    row_count = len(grid)
+    col_count = len(grid[0])
+
+    visited = [[False for _ in range(col_count)] for _ in range(row_count)]
+
+    queue = []
+
+    for row in range(row_count):
+        for col in range(col_count):
+            if grid[row][col] == 1:
+                queue.append((row, col))
+                visited[row][col] = True
+
+    def is_valid_cell(row, col):
+        return (
+            row >= 0
+            and row < row_count
+            and col >= 0
+            and col < col_count
+            and grid[row][col] == 1
+            and not visited[row][col]
+        )
+
+    def fill_cell(row, col):
+        visited[row][col] = True
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            if is_valid_cell(row + dx, col + dy):
+                queue.append((row + dx, col + dy))
+
+    count = 0
+    while queue:
+        next_cell = queue.pop(0)
+        fill_cell(next_cell[0], next_cell[1])
+        count += 1
+
+    return count
+

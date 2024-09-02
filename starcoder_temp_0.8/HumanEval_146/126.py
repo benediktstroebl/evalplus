@@ -1,0 +1,15 @@
+
+def specialFilter(nums):
+    """Write a function that takes an array of numbers as input and returns 
+    the number of elements in the array that are greater than 10 and both 
+    first and last digits of a number are odd (1, 3, 5, 7, 9).
+    For example:
+    specialFilter([15, -73, 14, -15]) => 1 
+    specialFilter([33, -2, -3, 45, 21, 109]) => 2
+    """
+    c=0
+    for i in nums:
+        a = i > 10
+        b = (i // 10) % 2
+        c += a * b * ((i % 10) % 2)
+    return c

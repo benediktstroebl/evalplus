@@ -1,0 +1,54 @@
+
+def do_algebra(operator, operand):
+    """
+    Given two lists operator, and operand. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebric 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operator['+', '*', '-']
+    array = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operator list is equal to the length of operand list minus one.
+        Operand is a list of of non-negative integers.
+        Operator list has at least one operator, and operand list has at least two operands.
+
+    """
+    # Check operator and operand
+    if len(operator)!= len(operand) - 1:
+        raise Exception("The length of operator list is equal to the length of operand list minus one")
+    if len(operand) < 2:
+        raise Exception("Operand is a list of of non-negative integers. Operand list has at least two operands")
+    # Check operator
+    for op in operator:
+        if op not in ['+', '-', '*', '//', '**']:
+            raise Exception("Operator not in ['+', '-', '*', '//', '**']")
+
+    # Build expression
+    exp = ""
+    for i, op in enumerate(operator):
+        if op == '+':
+            exp += "+ "
+        elif op == '-':
+            exp += "- "
+        elif op == '*':
+            exp += "* "
+        elif op == '//':
+            exp += "// "
+        elif op == '**':
+            exp += "** "
+
+        exp += str(operand[i])
+    exp += str(operand[-1])
+
+    return eval(exp)

@@ -1,0 +1,11 @@
+
+def digits(n):
+    """Given a positive integer n, return the product of the odd digits.
+    Return 0 if all digits are even.
+    For example:
+    digits(1)  == 1
+    digits(4)  == 0
+    digits(235) == 15
+    """
+    if n < 0 or (n%10 == 0 and n!= 0): return 0
+    return n % 10 * digits(n//10) if n > 9 else n%10

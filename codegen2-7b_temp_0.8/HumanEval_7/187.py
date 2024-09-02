@@ -1,0 +1,17 @@
+from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """ Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """
+    if not isinstance(strings, list):
+        raise ValueError("Input must be list of strings")
+    if not isinstance(substring, str):
+        raise ValueError("Input must be string")
+    if not substring:
+        return strings
+    return [s for s in strings if substring in s

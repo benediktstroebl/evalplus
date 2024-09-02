@@ -1,0 +1,11 @@
+
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+
+    pass
+
+                                         #311, 312, 221, 212, 122, 213, 123, 231, 232, 311, 312, 221, 212, 122, 213,
+                                         #123, 231, 232, 311, 312, 221, 212, 122, 213, 123, 231,

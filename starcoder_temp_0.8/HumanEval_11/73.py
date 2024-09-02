@@ -1,0 +1,18 @@
+from typing import List
+
+
+def string_xor(a: str, b: str) -> str:
+    """ Input are two strings a and b consisting only of 1s and 0s.
+    Perform binary XOR on these inputs and return result also as a string.
+    >>> string_xor('010', '110')
+    '100'
+    """
+
+    # converting string to list of integer
+    a = [int(i) for i in a]
+    b = [int(i) for i in b]
+    # xor operation
+    result = [str(i) for i in map(lambda a, b: a ^ b, a, b)]
+
+    return "".join(result)
+

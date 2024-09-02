@@ -1,0 +1,20 @@
+
+def multiply(a, b):
+    """Complete the function that takes two integers and returns 
+    the product of their unit digits.
+    Assume the input is always valid.
+    Examples:
+    multiply(148, 412) should return 16.
+    multiply(19, 28) should return 72.
+    multiply(2020, 1851) should return 0.
+    multiply(14,-15) should return 20.
+    """
+    a1 = a%10
+    a2 = (a//10)%10
+    a3 = (a//100)%10
+    b1 = b%10
+    b2 = (b//10)%10
+    b3 = (b//100)%10
+    print(a1*b1, a2*b2, a3*b3)
+    return a1*b1 + a2*b2 + a3*b3
+

@@ -1,0 +1,36 @@
+
+def bf(planet1, planet2):
+    '''
+    There are eight planets in our solar system: the closerst to the Sun 
+    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, 
+    Uranus, Neptune.
+    Write a function that takes two planet names as strings planet1 and planet2. 
+    The function should return a tuple containing all planets whose orbits are 
+    located between the orbit of planet1 and the orbit of planet2, sorted by 
+    the proximity to the sun. 
+    The function should return an empty tuple if planet1 or planet2
+    are not correct planet names. 
+    Examples
+    bf("Jupiter", "Neptune") ==> ("Saturn", "Uranus")
+    bf("Earth", "Mercury") ==> ("Venus")
+    bf("Mercury", "Uranus") ==> ("Venus", "Earth", "Mars", "Jupiter", "Saturn")
+    '''
+
+    planets = ("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    planets_distance = (0, 1.08, 1.52, 1.96, 5.21, 9.54, 19.71, 30.06)
+    if planet1 in planets and planet2 in planets:
+        index1 = planets.index(planet1)
+        index2 = planets.index(planet2)
+        index1_distance = planets_distance[index1]
+        index2_distance = planets_distance[index2]
+        result = ()
+        if index1_distance < index2_distance:
+            for i in range(index1, index2+1):
+                result = result + (planets[i],)
+            return result
+        elif index1_distance > index2_distance:
+            for i in range(index1, index2-1, -1):
+                result = result + (planets[i],)
+            return result
+        elif index1_distance == index2_distance:
+            return result

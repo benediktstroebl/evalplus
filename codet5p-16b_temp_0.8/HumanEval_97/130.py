@@ -1,0 +1,24 @@
+
+def multiply(a, b):
+    """Complete the function that takes two integers and returns 
+    the product of their unit digits.
+    Assume the input is always valid.
+    Examples:
+    multiply(148, 412) should return 16.
+    multiply(19, 28) should return 72.
+    multiply(2020, 1851) should return 0.
+    multiply(14,-15) should return 20.
+    """
+
+    num_list = [int(i) for i in str(a)]
+    mult_list = [int(i) for i in str(b)]
+    
+    result = 1
+
+    for i in num_list:
+        result = result * i
+
+    for i in mult_list:
+        result = result * i
+
+    return result

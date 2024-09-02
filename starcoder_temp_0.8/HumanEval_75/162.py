@@ -1,0 +1,18 @@
+
+def is_multiply_prime(a):
+    """Write a function that returns true if the given number is the multiplication of 3 prime numbers
+    and false otherwise.
+    Knowing that (a) is less then 100. 
+    Example:
+    is_multiply_prime(30) == True
+    30 = 2 * 3 * 5
+    """
+    prime_numbers = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    if a in prime_numbers:
+        return True
+    for i in range(0, len(prime_numbers)):
+        for j in range(i + 1, len(prime_numbers)):
+            for k in range(j + 1, len(prime_numbers)):
+                if a == prime_numbers[i] * prime_numbers[j] * prime_numbers[k]:
+                    return True
+    return False

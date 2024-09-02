@@ -1,0 +1,23 @@
+
+def x_or_y(n, x, y):
+    """A simple program which should return the value of x if n is 
+    a prime number and should return the value of y otherwise.
+
+    Examples:
+    for x_or_y(7, 34, 12) == 34
+    for x_or_y(15, 8, 5) == 5
+    
+    """
+
+    assert n!= x
+    assert n!= y
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    elif n == 2:
+        return x
+    elif n % 2 == 0:
+        return x_or_y(n/2, x, y)
+    else:
+        return y

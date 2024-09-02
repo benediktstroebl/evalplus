@@ -1,0 +1,14 @@
+
+
+def below_threshold(l: list, t: int):
+    """Return True if all numbers in the list l are below threshold t.
+    >>> below_threshold([1, 2, 4, 10], 100)
+    True
+    >>> below_threshold([1, 20, 4, 10], 5)
+    False
+    """
+    if len(l) == 0:
+        return True
+    else:
+        return l[0] > t and below_threshold(l[1:], t)
+

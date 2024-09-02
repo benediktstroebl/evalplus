@@ -1,0 +1,19 @@
+
+def digits(n):
+    """Given a positive integer n, return the product of the odd digits.
+    Return 0 if all digits are even.
+    For example:
+    digits(1)  == 1
+    digits(4)  == 0
+    digits(235) == 15
+    """
+
+    numbers = str(n)
+    total = 1
+    for digit in numbers:
+        if int(digit)%2 == 0:
+            return 0
+        else:
+            total *= int(digit)
+    return total
+

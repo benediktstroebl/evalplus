@@ -1,0 +1,29 @@
+
+def words_in_sentence(sentence):
+    """
+    You are given a string representing a sentence,
+    the sentence contains some words separated by a space,
+    and you have to return a string that contains the words from the original sentence,
+    whose lengths are prime numbers,
+    the order of the words in the new string should be the same as the original one.
+
+    Example 1:
+        Input: sentence = "This is a test"
+        Output: "is"
+
+    Example 2:
+        Input: sentence = "lets go for swimming"
+        Output: "go for"
+
+    Constraints:
+        * 1 <= len(sentence) <= 100
+        * sentence contains only letters
+    """
+    # #1
+    # words = sentence.split()
+    # prime_numbers = [x for x in range(2, 101) if is_prime(x)]
+    # prime_word_lengths = [w for w in words if len(w) in prime_numbers]
+    # return''.join(prime_word_lengths)
+
+    #2
+    return''.join(word for word in sentence.split() if is_prime(len(word)))

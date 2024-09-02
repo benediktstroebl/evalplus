@@ -1,0 +1,17 @@
+
+
+def median(l: list):
+    """Return median of elements in the list l.
+    >>> median([3, 1, 2, 4, 5])
+    3
+    >>> median([-10, 4, 6, 1000, 10, 20])
+    15.0
+    """
+    assert type(l) == list, f"Expected a list, got {l}"
+    l.sort()
+    midpoint = len(l) // 2
+    if len(l) % 2 == 0:
+        return (l[midpoint-1] + l[midpoint]) / 2
+    else:
+        return l[midpoint]
+
