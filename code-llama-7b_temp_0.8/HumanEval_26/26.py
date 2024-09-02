@@ -1,0 +1,17 @@
+from typing import List
+
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    """ From a list of integers, remove all elements that occur more than once.
+    Keep order of elements left the same as in the input.
+    >>> remove_duplicates([1, 2, 3, 2, 4])
+    [1, 3, 4]
+    """
+    seen = set()
+    seen_twice = set()
+    for i in numbers:
+        if i not in seen:
+            seen.add(i)
+        else:
+            seen_twice.add(i)
+    return [i for i in numbers if i not in seen_twice]

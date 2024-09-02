@@ -1,0 +1,44 @@
+
+def sort_array(array):
+    """
+    Given an array of non-negative integers, return a copy of the given array after sorting,
+    you will sort the given array in ascending order if the sum( first index value, last index value) is odd,
+    or sort it in descending order if the sum( first index value, last index value) is even.
+
+    Note:
+    * don't change the given array.
+
+    Examples:
+    * sort_array([]) => []
+    * sort_array([5]) => [5]
+    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]
+    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]
+    """
+    if len(array) == 1:
+        return array
+
+    mid = len(array) // 2
+    left_half = array[:mid]
+    right_half = array[mid:]
+    left_half_sorted = sort_array(left_half)
+    right_half_sorted = sort_array(right_half)
+    sorted_array = []
+
+    idxleft = 0
+    idxright = 0
+    for array_i in range(len(array)):
+        if idxright >= len(right_half_sorted):
+            sorted_array.extend(left_half_sorted[idxleft:])
+            sorted_array.append(right_half[idxright])
+            idxright += 1
+        elif idxleft >= len(left_half_sorted):
+            sorted_array.extend(right_half_sorted[idxright:])
+            sorted_array.append(left_half[idxleft])
+            idxleft += 1
+        elif (sum(left_half_sorted[idxleft]) < sum(right_half_sorted[idxright])):
+            sorted_array.append(left_half[idxleft])
+            idxleft += 1
+        else:
+            sorted_array.append(right_half[idxright])
+            idxright += 1
+    return sorted_array

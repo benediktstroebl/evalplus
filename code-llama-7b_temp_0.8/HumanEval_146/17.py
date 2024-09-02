@@ -1,0 +1,29 @@
+
+def specialFilter(nums):
+    """Write a function that takes an array of numbers as input and returns 
+    the number of elements in the array that are greater than 10 and both 
+    first and last digits of a number are odd (1, 3, 5, 7, 9).
+    For example:
+    specialFilter([15, -73, 14, -15]) => 1 
+    specialFilter([33, -2, -3, 45, 21, 109]) => 2
+    """
+    nums_odd = []
+    for num in nums:
+        num = str(num)
+        if len(num) == 4:
+            if int(num[0]) % 2 != 0:
+                nums_odd.append(num)
+        elif len(num) == 3:
+            if int(num[0]) % 2 != 0 and int(num[2]) % 2 != 0:
+                nums_odd.append(num)
+        elif len(num) == 2:
+            if int(num[0]) % 2 != 0 and int(num[1]) % 2 != 0:
+                nums_odd.append(num)
+        elif len(num) == 1:
+            if int(num[0]) % 2 != 0:
+                nums_odd.append(num)
+    odd_count = 0
+    for num in nums_odd:
+        if int(num) > 10:
+            odd_count += 1
+    return odd_count

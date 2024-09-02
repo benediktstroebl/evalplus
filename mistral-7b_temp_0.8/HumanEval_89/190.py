@@ -1,0 +1,29 @@
+
+def encrypt(s):
+    """Create a function encrypt that takes a string as an argument and
+    returns a string encrypted with the alphabet being rotated. 
+    The alphabet should be rotated in a manner such that the letters 
+    shift down by two multiplied to two places.
+    For example:
+    encrypt('hi') returns 'lm'
+    encrypt('asdfghjkl') returns 'ewhjklnop'
+    encrypt('gf') returns 'kj'
+    encrypt('et') returns 'ix'
+    """
+
+    l = ord('a')
+    answer = ''
+
+    for i in range(len(s)):
+        char = ord(s[i])
+        if char > l and char < ord('z'):
+            answer += chr(char + 2)
+        elif char > ord('Z') and char < ord('A'):
+            answer += chr(char + 2)
+        elif char > ord('z') and char < ord('a'):
+            answer += chr(char + 2)
+        else:
+            answer += s[i]
+
+    return answer
+

@@ -1,0 +1,23 @@
+
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+    if len(xs) == 0:
+        return []
+    if len(xs) == 1:
+        return []
+    if len(xs) == 2:
+        return [xs[1]]
+    res = [0] * (len(xs) - 1)
+    for i in range(len(res)):
+        res[i] = i + 1
+    res = [a * b for a, b in zip(res, xs[1:])]
+    return res
+

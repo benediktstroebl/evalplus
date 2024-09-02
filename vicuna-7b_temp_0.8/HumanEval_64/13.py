@@ -1,0 +1,31 @@
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+    # Check that the input is a string
+    if not isinstance(s, str) or not s:
+        return 0
+
+    # Initialize the count of vowels
+    vowel_count = 0
+
+    # Check for each character in the string
+    for char in s:
+        # Check if the character is a vowel
+        if char in "aeiouAEIOU":
+            vowel_count += 1
+
+    return vowel_count

@@ -1,0 +1,1 @@
+Namespace(model='mistral-7b', bs=50, temperature=0.8, dataset='humaneval', root='/scratch/humanevalp', n_samples=200, resume=True, use_contracts='no', greedy=False)

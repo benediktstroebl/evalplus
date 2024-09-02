@@ -1,0 +1,38 @@
+
+
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+    # count number of each char in first string, check if the count of each char
+    # is the same in the second string
+    d = {}
+    for c in s0:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    
+    for c in s1:
+        if c not in d:
+            return False
+        else:
+            d[c] -= 1
+    
+    for c in d:
+        if d[c] != 0:
+            return False
+    return True
+

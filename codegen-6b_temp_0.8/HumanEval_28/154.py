@@ -1,0 +1,16 @@
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+    empty = ""
+    for idx,string in enumerate(strings):
+        empty += string
+        if idx < len(strings)-1:
+            empty += "".join([" ", ""])
+    return empty

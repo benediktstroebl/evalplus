@@ -1,0 +1,25 @@
+
+
+def modp(n: int, p: int):
+    """Return 2^n modulo p (be aware of numerics).
+    >>> modp(3, 5)
+    3
+    >>> modp(1101, 101)
+    2
+    >>> modp(0, 101)
+    1
+    >>> modp(3, 11)
+    8
+    >>> modp(100, 101)
+    1
+    """
+    n, p = p - 1, p
+    if n < 0:
+        return 0
+    if n == 0:
+        return 1
+    if n == 1:
+        return 0
+    t = p - n + 1
+    result = pow(2, n - 1, p)
+    return result if t < result else 1 - result

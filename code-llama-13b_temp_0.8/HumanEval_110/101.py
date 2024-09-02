@@ -1,0 +1,33 @@
+
+def exchange(lst1, lst2):
+    """In this problem, you will implement a function that takes two lists of numbers,
+    and determines whether it is possible to perform an exchange of elements
+    between them to make lst1 a list of only even numbers.
+    There is no limit on the number of exchanged elements between lst1 and lst2.
+    If it is possible to exchange elements between the lst1 and lst2 to make
+    all the elements of lst1 to be even, return "YES".
+    Otherwise, return "NO".
+    For example:
+    exchange([1, 2, 3, 4], [1, 2, 3, 4]) => "YES"
+    exchange([1, 2, 3, 4], [1, 5, 3, 4]) => "NO"
+    It is assumed that the input lists will be non-empty.
+    """
+    list1 = list1[:]
+    list2 = list2[:]
+    for i in range(len(list1)):
+        if list1[i] % 2 == 1 and len(list2) > 0:
+            index = 0
+            for j in range(len(list2)):
+                if list2[j] % 2 == 0:
+                    index = j
+                    break
+            if index == 0:
+                return "NO"
+            else:
+                list1[i] = list2.pop(index)
+        elif list1[i] % 2 == 0:
+            continue
+        else:
+            return "NO"
+    return "YES"
+

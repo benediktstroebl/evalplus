@@ -1,0 +1,23 @@
+import math
+
+def minSubArraySum(nums):
+    """
+    Given an array of integers nums, find the minimum sum of any non-empty sub-array
+    of nums.
+    Example
+    minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+    minSubArraySum([-1, -2, -3]) == -6
+    """
+    # O(n**2)
+    if not nums:
+        return 0
+    # O(n)
+    min_sum = math.inf
+    for i in range(len(nums)):
+        # O(n)
+        sum_ = 0
+        for j in range(i, len(nums)):
+            sum_ += nums[j]
+            min_sum = min(min_sum, sum_)
+    return min_sum
+

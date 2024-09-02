@@ -1,0 +1,21 @@
+
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this ingeger is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+    # your code here
+    #for x in range(1,a/2):
+    #    if a==x**3:
+    #        return True
+    #return False
+    return a==a**(1/3)
+

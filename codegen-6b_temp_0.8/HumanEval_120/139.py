@@ -1,0 +1,51 @@
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+    from typing import List
+
+    from sortedcontainers import SortedList
+
+    def max_element_of(nums: List[int], k: int) -> List[int]:
+        """
+        Return the kth largest element from the given array nums.
+
+        :param nums: The array of numbers to consider
+        :param k: The kth largest element to consider
+        :return: The kth largest element
+        """
+        sorted_list = SortedList()
+        for num in nums:
+            sorted_list.add(num)
+        return sorted_list[-k]
+
+    if k > len(arr):
+        raise ValueError("k is larger than the size of the array")
+
+    ret = []
+    for i in range(k):
+        ret.append(max_element_of(arr, i + 1))
+    return ret
+

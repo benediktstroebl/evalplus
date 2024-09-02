@@ -1,0 +1,48 @@
+
+def exchange(lst1, lst2):
+    """In this problem, you will implement a function that takes two lists of numbers,
+    and determines whether it is possible to perform an exchange of elements
+    between them to make lst1 a list of only even numbers.
+    There is no limit on the number of exchanged elements between lst1 and lst2.
+    If it is possible to exchange elements between the lst1 and lst2 to make
+    all the elements of lst1 to be even, return "YES".
+    Otherwise, return "NO".
+    For example:
+    exchange([1, 2, 3, 4], [1, 2, 3, 4]) => "YES"
+    exchange([1, 2, 3, 4], [1, 5, 3, 4]) => "NO"
+    It is assumed that the input lists will be non-empty.
+    """
+    # Your code goes here.
+    # Please use helper functions below!
+
+    def exchangeHelper(lst1, lst2, ex1, ex2):
+        # Recursive function to exchange an element in lst1 with an element in lst2
+        # to make all the elements of lst1 to be even.
+        if lst1 == ex1:
+            lst1.pop(ex1)
+            lst2.append(ex2)
+            if lst1 == [0] and lst2 == [2]:
+                return "YES"
+            else:
+                return exchangeHelper(lst1, lst2, ex1, ex2)
+        else:
+            return exchangeHelper(lst1, lst2, ex1, ex2)
+
+    if len(lst1) != len(lst2) or len(lst1) == 0 or len(lst2) == 0:
+        return "NO"
+    if lst1 == lst2:
+        return "NO"
+    for i in range(len(lst1)):
+        if lst1[i] % 2 != 0 or lst2[i] % 2 != 0:
+            return "NO"
+    for j in range(len(lst1)):
+        if lst1[j] % 2 != 0:
+            lst1[j] += 1
+    for k in range(len(lst2)):
+        if lst2[k] % 2 != 0:
+            lst2[k] += 1
+    if exchangeHelper(lst1, lst2, [0], [2]) == "YES":
+        return "YES"
+    else:
+        return "NO"
+

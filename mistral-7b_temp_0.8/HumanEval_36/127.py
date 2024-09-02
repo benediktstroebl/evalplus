@@ -1,0 +1,17 @@
+
+
+def fizz_buzz(n: int):
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+    >>> fizz_buzz(50)
+    0
+    >>> fizz_buzz(78)
+    2
+    >>> fizz_buzz(79)
+    3
+    """
+    n_7s = 0
+    for x in range(1, n):
+        if x % 11 == 0 or x % 13 == 0:
+            if str(x).count('7') > 0:
+                n_7s += 1
+    return n_7s

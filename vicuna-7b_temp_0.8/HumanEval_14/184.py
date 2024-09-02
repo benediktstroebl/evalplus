@@ -1,0 +1,20 @@
+from typing import List
+
+
+def all_prefixes(string: str) -> List[str]:
+    """ Return list of all prefixes from shortest to longest of the input string
+    >>> all_prefixes('abc')
+    ['a', 'ab', 'abc']
+    """
+    if len(string) == 0:
+        return []
+    prefixes = [string]
+    for i in range(1, len(string)):
+        for prefix in prefixes:
+            if string[0] == prefix[0]:
+                prefixes.append(prefix + string[1:])
+                break
+        else:
+            prefixes.append(prefix + string[1:])
+    return prefixes
+

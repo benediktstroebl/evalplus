@@ -1,0 +1,72 @@
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+    k = min(k, len(arr))
+    heap = []
+
+    for i in range(k):
+        # Heapify the maximum heap
+        heapq.heappush(heap, arr[i])
+
+    for i in range(k, len(arr)):
+        # If the maximum is smaller than the new number, pop it out
+        # and push the new number into the heap
+        if heap[0] < arr[i]:
+            heapq.heappop(heap)
+            heapq.heappush(heap, arr[i])
+    
+    return sorted(heapq.nlargest(k, arr))
+
+    """
+    The above method is slower. It takes 9820 ms
+    O(NlogK + KlogK)
+
+    The below method is faster. It takes 6504 ms
+    O(NlogK)
+    """
+    # k = min(k, len(arr))
+    # # O(NlogK)
+    # heap = max(arr[:k])
+
+    # # O(KlogK)
+    # heapq.heapify(heap)
+
+    # # O(N)
+    # for i in range(k, len(arr)):
+    #     if heap[0] < arr[i]:
+    #         heapq.heapreplace(heap, arr[i])
+
+    # # O(K)
+    # return sorted(heap)
+
+    """
+    The below method is the fastest. It takes 5964 ms
+    O(NlogK)
+    """
+    k = min(k, len(arr))
+    # O(NlogK)
+    return sorted(arr[:k])
+

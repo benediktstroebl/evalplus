@@ -1,0 +1,50 @@
+
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+    #Solution 1
+    """
+    def count_nums(arr):
+        result=0
+        for i in arr:
+            n=abs(i)
+            x=str(n)
+            y=len(x)
+            sum=0
+            for i in x:
+                sum+=int(i)
+            if sum>0:
+                result+=1
+        return result
+    """
+    #Solution 2
+    """
+    def count_nums(arr):
+        result=0
+        for i in arr:
+            n=abs(i)
+            sum=0
+            while n>0:
+                sum+=n%10
+                n=n//10
+            if sum>0:
+                result+=1
+        return result
+    """
+    #Solution 3
+    """
+    def count_nums(arr):
+        result=0
+        for i in arr:
+            n=abs(i)
+            sum=0
+            while n>0:
+                d=n%10
+                if d<0:

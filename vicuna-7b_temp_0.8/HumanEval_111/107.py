@@ -1,0 +1,26 @@
+
+def histogram(test):
+    """Given a string representing a space separated lowercase letters, return a dictionary
+    of the letter with the most repetition and containing the corresponding count.
+    If several letters have the same occurrence, return all of them.
+    
+    Example:
+    histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}
+    histogram('a b b a') == {'a': 2, 'b': 2}
+    histogram('a b c a b') == {'a': 2, 'b': 2}
+    histogram('b b b b a') == {'b': 4}
+    histogram('') == {}
+
+    """
+    # convert the string to a set of unique characters
+    char_set = set(test.lower())
+    # add the " " character to account for any leading spaces
+    char_set.add(" ")
+    # create a dictionary to hold the count for each character
+    char_count = {}
+    # iterate through the set of characters
+    for char in char_set:
+        char_count[char] = char_count.get(char, 0) + 1
+    # return the maximum count and the corresponding character
+    max_count = max(char_count.values())
+    return {char: char_count[char] for char in char_count if char_count[char] == max_count}

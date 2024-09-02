@@ -1,0 +1,34 @@
+
+
+def correct_bracketing(brackets: str):
+    """ brackets is a string of "(" and ")".
+    return True if every opening bracket has a corresponding closing bracket.
+
+    >>> correct_bracketing("(")
+    False
+    >>> correct_bracketing("()")
+    True
+    >>> correct_bracketing("(()())")
+    True
+    >>> correct_bracketing(")(()")
+    False
+    """
+
+    # Your code here
+
+    stack = []
+
+    for bracket in brackets:
+        if bracket == '(':
+            stack.append(bracket)
+        elif bracket == ')':
+            if stack:
+                stack.pop()
+            else:
+                return False
+    
+    if stack:
+        return False
+    else:
+        return True
+

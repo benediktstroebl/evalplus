@@ -1,0 +1,20 @@
+
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+    x = np.matrix([xs])
+    n = len(xs) - 1
+
+    derivative = np.zeros([1, n + 1])
+    derivative[0, 0] = xs[1]
+    for i in range(2, n + 1):
+        derivative[0, i] = xs[i-1] * i
+    return derivative.tolist()[0]
+

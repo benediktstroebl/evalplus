@@ -1,0 +1,46 @@
+
+def get_max_triples(n):
+    """
+    You are given a positive integer n. You have to create an integer array a of length n.
+        For each i (1 ≤ i ≤ n), the value of a[i] = i * i - i + 1.
+        Return the number of triples (a[i], a[j], a[k]) of a where i < j < k, 
+    and a[i] + a[j] + a[k] is a multiple of 3.
+
+    Example :
+        Input: n = 5
+        Output: 1
+        Explanation: 
+        a = [1, 3, 7, 13, 21]
+        The only valid triple is (1, 7, 13).
+    """
+    # Find the max number that can be squared without going over n
+    # i.e. 2n**2 = n**2 + n = 2n + n = n*(n+1)
+    # 2n**2 = n*(n+1)
+    # n = (2n**2-n)/(2-1) = (2n**2-n)/1
+    # n = (2n**2-n)/2
+    # n**2 = (2n**2-n)/2
+    # n**2 = (2n**2-n)/2
+    # n**2 = (n**2 - (n**2 - n))/2
+    # n**2 = (n**2 - n)/2
+    # n**2 = (n-1)*n/2
+    # n = sqrt(2*n**2-n)
+    # n = sqrt(2*n**2-n)/(2-1) = sqrt(2*n**2-n)/1
+    # n = sqrt(2*n**2-n)/2
+    # n = sqrt(2*n**2-n)/2
+    # n = sqrt(2*n**2-n)/2
+    # n**2 = (2*n**2-n)/2
+    # n**2 = (2*n**2-n)/2
+    # n**2 = (2*n**2-n)/2
+    # n**2 = (2*n**2-n)/2
+    # 2*n**2-n = 4*n**2-4*n
+    # n**2 = 2*n**2-4*n+4
+    # n**2 - 4*n+4 = 0
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n(n-4) = 4
+    # n

@@ -1,0 +1,26 @@
+
+def digits(n):
+    """Given a positive integer n, return the product of the odd digits.
+    Return 0 if all digits are even.
+    For example:
+    digits(1)  == 1
+    digits(4)  == 0
+    digits(235) == 15
+    """
+    if n < 0:
+        return -1
+
+    odd_nums = []
+    product = 1
+
+    while n:
+        remainder = n % 10
+
+        if remainder % 2 == 1:
+            odd_nums.append(remainder)
+            product *= remainder
+
+        n = n // 10
+
+    return product
+

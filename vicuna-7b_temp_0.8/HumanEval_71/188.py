@@ -1,0 +1,22 @@
+
+def triangle_area(a, b, c):
+    '''
+    Given the lengths of the three sides of a triangle. Return the area of
+    the triangle rounded to 2 decimal points if the three sides form a valid triangle. 
+    Otherwise return -1
+    Three sides make a valid triangle when the sum of any two sides is greater 
+    than the third side.
+    Example:
+    triangle_area(3, 4, 5) == 6.00
+    triangle_area(1, 2, 10) == -1
+    '''
+    if a + b > c or a + c > b or b + c > a:
+        return -1
+    elif a + b > c and b + c > a:
+        return round(sqrt(a*a + b*b + c*c), 2)
+    elif a + c > b and c + b > a:
+        return round(sqrt(a*a + c*c + b*b), 2)
+    elif b + c > a and c + a > b:
+        return round(sqrt(b*b + c*c + a*a), 2)
+    else:
+        return -1

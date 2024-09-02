@@ -1,0 +1,26 @@
+
+def sort_array(array):
+    """
+    Given an array of non-negative integers, return a copy of the given array after sorting,
+    you will sort the given array in ascending order if the sum( first index value, last index value) is odd,
+    or sort it in descending order if the sum( first index value, last index value) is even.
+
+    Note:
+    * don't change the given array.
+
+    Examples:
+    * sort_array([]) => []
+    * sort_array([5]) => [5]
+    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]
+    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]
+    """
+    sorted_list = array.copy()
+    first = sorted_list[0]
+    last = sorted_list[-1]
+    sum_first_and_last = first + last
+    if sum_first_and_last % 2 == 0:
+        sorted_list.sort(reverse=True)
+    else:
+        sorted_list.sort()
+
+    return sorted_list

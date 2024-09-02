@@ -1,0 +1,26 @@
+
+def solution(lst):
+    """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+    
+
+    Examples
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
+    solution([30, 13, 24, 321]) ==>0
+    """
+    even_indexes = 0
+    sum_of_odd_even_indexes = 0
+    if not lst:
+        return 0
+    for x in lst:
+        if x % 2 != 0:
+            even_indexes += 1
+
+    if even_indexes <= 0:
+        return 0
+
+    for x in range(len(lst)):
+        if x % 2 == 0 and lst[x] % 2 != 0:
+            sum_of_odd_even_indexes += lst[x]
+    return sum_of_odd_even_indexes
+

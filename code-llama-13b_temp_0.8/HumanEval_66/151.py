@@ -1,0 +1,28 @@
+
+def digitSum(s):
+    """Task
+    Write a function that takes a string as input and returns the sum of the upper characters only'
+    ASCII codes.
+
+    Examples:
+        digitSum("") => 0
+        digitSum("abAB") => 131
+        digitSum("abcCd") => 67
+        digitSum("helloE") => 69
+        digitSum("woArBld") => 131
+        digitSum("aAaaaXa") => 153
+    """
+    # if s is empty
+    if s == "":
+        return 0
+    # initialize sum variable
+    sum = 0
+    # iterate over the string s
+    for char in s:
+        # if char is upper case
+        if char.isupper():
+            # add ascii value to sum
+            sum += ord(char)
+    # return sum
+    return sum
+

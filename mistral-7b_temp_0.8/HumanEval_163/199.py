@@ -1,0 +1,24 @@
+
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+
+    #TODO: return a list of integers with even digits, sorted in ascending order
+    #      between a and b
+    #      e.g.
+    #      generate_integers(2, 8) => [2, 4, 6, 8]
+    #      generate_integers(8, 2) => [2, 4, 6, 8]
+    #      generate_integers(10, 14) => []
+
+    l=[]
+    for i in range(a,b+1):
+        if i%2==0:
+            l.append(i)
+    return sorted(l)

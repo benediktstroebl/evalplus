@@ -1,0 +1,34 @@
+from typing import List
+
+
+def sort_numbers(numbers: str) -> str:
+    """ Input is a space-delimited string of numberals from 'zero' to 'nine'.
+    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.
+    Return the string with numbers sorted from smallest to largest
+    >>> sort_numbers('three one five')
+    'one three five'
+    """
+    nums_dict = {
+        'zero': 0,
+        'one': 1,
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9
+    }
+    words = numbers.split()
+    numbers_list: List[int] = []
+    for word in words:
+        numbers_list.append(nums_dict[word])
+    numbers_list.sort()
+    output_words: List[str] = []
+    for number in numbers_list:
+        for key, value in nums_dict.items():
+            if value == number:
+                output_words.append(key)
+    return ' '.join(output_words)
+

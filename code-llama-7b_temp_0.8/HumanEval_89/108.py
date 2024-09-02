@@ -1,0 +1,20 @@
+
+def encrypt(s):
+    """Create a function encrypt that takes a string as an argument and
+    returns a string encrypted with the alphabet being rotated. 
+    The alphabet should be rotated in a manner such that the letters 
+    shift down by two multiplied to two places.
+    For example:
+    encrypt('hi') returns 'lm'
+    encrypt('asdfghjkl') returns 'ewhjklnop'
+    encrypt('gf') returns 'kj'
+    encrypt('et') returns 'ix'
+    """
+    return s.translate(str.maketrans(string.ascii_lowercase,
+                                     'aaz' + 'bx' + 'cc' + 'dd' +
+                                     'ee' + 'ff' + 'gg' + 'hh' +
+                                     'ii' + 'jj' + 'kk' + 'll' +
+                                     'mm' + 'nn' + 'oo' + 'pp' +
+                                     'qq' + 'rr' + 'ss' + 'tt' +
+                                     'uu' + 'vv' + 'ww' + 'xx' +
+                                     'yy' + 'zz'))

@@ -1,0 +1,30 @@
+
+
+def is_prime(n):
+    """Return true if a given number is prime, and false otherwise.
+    >>> is_prime(6)
+    False
+    >>> is_prime(101)
+    True
+    >>> is_prime(11)
+    True
+    >>> is_prime(13441)
+    True
+    >>> is_prime(61)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(1)
+    False
+    """
+    # If n is not a prime number, return False.
+    if n < 2 or n == 2 or n % 2 == 0:
+        return False
+
+    # Check if n is prime by dividing n by the prime numbers less than its square root.
+    for i in range(int(n ** 0.5) + 2, int(n ** 1.0) + 1):
+        if n % i == 0:
+            return False
+
+    # If n has no divisors other than 1 and n itself, return True.
+    return True

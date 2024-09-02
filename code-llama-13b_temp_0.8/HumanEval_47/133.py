@@ -1,0 +1,18 @@
+
+
+def median(l: list):
+    """Return median of elements in the list l.
+    >>> median([3, 1, 2, 4, 5])
+    3
+    >>> median([-10, 4, 6, 1000, 10, 20])
+    15.0
+    """
+    # first we sort the list
+    l.sort()
+    # if the list has an odd length, we return the middle element
+    if len(l) % 2 != 0:
+        return l[int((len(l)-1)/2)]
+    # if the list has an even length, we return the average of the two middle elements
+    else:
+        return (l[int(len(l)/2)] + l[int(len(l)/2)-1])/2
+

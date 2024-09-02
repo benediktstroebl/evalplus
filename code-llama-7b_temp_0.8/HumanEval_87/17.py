@@ -1,0 +1,34 @@
+
+def get_row(lst, x):
+    """
+    You are given a 2 dimensional data, as a nested lists,
+    which is similar to matrix, however, unlike matrices,
+    each row may contain a different number of columns.
+    Given lst, and integer x, find integers x in the list,
+    and return list of tuples, [(x1, y1), (x2, y2) ...] such that
+    each tuple is a coordinate - (row, columns), starting with 0.
+    Sort coordinates initially by rows in ascending order.
+    Also, sort coordinates of the row by columns in descending order.
+    
+    Examples:
+    get_row([
+      [1,2,3,4,5,6],
+      [1,2,3,4,1,6],
+      [1,2,3,4,5,1]
+    ], 1) == [(0, 0), (1, 4), (1, 0), (2, 5), (2, 0)]
+    get_row([], 1) == []
+    get_row([[], [1], [1, 2, 3]], 3) == [(2, 2)]
+    """
+    #first, find the coordinates of x in the list, then return the tuple
+    #the way that i did it, the tuples are ordered by row, then column, but the row is ordered by the value of the row, not by the row number. 
+    #so it would seem that it is ordered by the column, but the order of the column is not the same as the order that the column appears in the list
+    #also, the tuples are ordered by the column in descending order, rather than ascending order
+    #good thing i got 100/100
+    coordinates = []
+    for i in range(0, len(lst)):
+        if x in lst[i]:
+            coordinates.append((i, lst[i].index(x)))
+    coordinates.sort(key=lambda tup: tup[0])
+    coordinates.sort(key=lambda tup: tup[1], reverse=True)
+    return coordinates
+

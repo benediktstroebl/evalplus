@@ -1,0 +1,24 @@
+
+def can_arrange(arr):
+    """Create a function which returns the largest index of an element which
+    is not greater than or equal to the element immediately preceding it. If
+    no such element exists then return -1. The given array will not contain
+    duplicate values.
+
+    Examples:
+    can_arrange([1,2,4,3,5]) = 3
+    can_arrange([1,2,3]) = -1
+    """
+    # Your code here
+    i = 0
+    j = 1
+    while j < len(arr):
+        if arr[i] >= arr[j]:
+            i = j
+            j += 1
+        else:
+            j += 1
+    if j >= len(arr):
+        return -1
+    return i
+

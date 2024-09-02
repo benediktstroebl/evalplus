@@ -1,0 +1,36 @@
+
+
+def car_race_collision(n: int):
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the number of such collisions.
+    """
+    assert 1 <= n <= 10**6
+
+    def get_position(i: int):
+        """Return the position of car i after time t.
+        If a collision occurs, then the resulting position is undefined."""
+        assert 0 <= i < n
+        assert 0 <= t
+        return (t*i - (i*(i-1))//2)
+
+    collisions = 0
+    for t in range(n+1):
+        for i in range(n):
+            position = get_position(i)
+            if position > t:
+                continue
+            elif position < 0:
+                continue
+            else:
+                collisions += 1
+                break
+    return collisions
+

@@ -1,0 +1,31 @@
+
+def any_int(x, y, z):
+    '''
+    Create a function that takes 3 numbers.
+    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
+    Returns false in any other cases.
+    
+    Examples
+    any_int(5, 2, 7) ➞ True
+    
+    any_int(3, 2, 2) ➞ False
+
+    any_int(3, -2, 1) ➞ True
+    
+    any_int(3.6, -2.2, 2) ➞ False
+  
+
+    
+    '''
+    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int) and (x == y + z or y == x + z or z == x + y):
+        return True
+    return False
+
+
+    # print(f'the value of the x is {x} the value of y is {y} and the value of z is {z}')
+    # print(type(x) == type(y) and type(y) == type(z))
+
+    # if type(x) == type(y) and type(y) == type(z) and (x == y + z or y == x + z or z == x + y):
+    #     return True
+    #     return False
+    # return False

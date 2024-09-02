@@ -1,0 +1,34 @@
+
+def select_words(s, n):
+    """Given a string s and a natural number n, you have been tasked to implement 
+    a function that returns a list of all words from string s that contain exactly 
+    n consonants, in order these words appear in the string s.
+    If the string s is empty then the function should return an empty list.
+    Note: you may assume the input string contains only letters and spaces.
+    Examples:
+    select_words("Mary had a little lamb", 4) ==> ["little"]
+    select_words("Mary had a little lamb", 3) ==> ["Mary", "lamb"]
+    select_words("simple white space", 2) ==> []
+    select_words("Hello world", 4) ==> ["world"]
+    select_words("Uncle sam", 3) ==> ["Uncle"]
+    """
+    # your code here
+    #take all words in a list
+    #check if the lenght of the words is equal to n
+    #if they are equal return them in a list
+    #if the lenght of the words is not equal to n
+    #return an empty list
+    #otherwise return the list with the words
+    if s =="":
+        return []
+    words = s.split(" ")
+    res = []
+    for word in words:
+        count = 0
+        for letter in word:
+            if letter not in "aeiouAEIOU":
+                count +=1
+        if count == n:
+            res.append(word)
+    return res
+

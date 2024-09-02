@@ -1,0 +1,21 @@
+
+def cycpattern_check(a , b):
+    """You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
+    cycpattern_check("abcd","abd") => False
+    cycpattern_check("hello","ell") => True
+    cycpattern_check("whassup","psus") => False
+    cycpattern_check("abab","baa") => True
+    cycpattern_check("efef","eeff") => False
+    cycpattern_check("himenss","simen") => True
+
+    """
+    # duplicating string
+    b=b*2
+    # making all the rotations
+    for x in range(len(b)):
+        b = b[1:] + b[:1]
+        # now search in string a
+        if b in a:
+            return True
+    return False
+

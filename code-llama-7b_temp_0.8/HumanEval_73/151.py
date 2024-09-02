@@ -1,0 +1,40 @@
+
+def smallest_change(arr):
+    """
+    Given an array arr of integers, find the minimum number of elements that
+    need to be changed to make the array palindromic. A palindromic array is an array that
+    is read the same backwards and forwards. In one change, you can change one element to any other element.
+
+    For example:
+    smallest_change([1,2,3,5,4,7,9,6]) == 4
+    smallest_change([1, 2, 3, 4, 3, 2, 2]) == 1
+    smallest_change([1, 2, 3, 2, 1]) == 0
+    """
+    res = 0
+    while True:
+        if arr == arr[::-1]:
+            return res
+        smallest = float("inf")
+        biggest = float("-inf")
+        for i in range(len(arr)):
+            if arr[i] < smallest:
+                smallest = arr[i]
+            if arr[i] > biggest:
+                biggest = arr[i]
+
+        left = []
+        right = []
+        for i in range(len(arr)):
+            if arr[i] == smallest:
+                left.append(i)
+            if arr[i] == biggest:
+                right = [i] + right
+        if left and right:
+            ind = min(left[0], right[0])
+            res += 1
+            arr[ind] = (biggest + smallest) / 2
+        else:
+            return -1
+
+
+

@@ -1,0 +1,15 @@
+from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    """ Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+    For each of the group, output the deepest level of nesting of parentheses.
+    E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+    >>> parse_nested_parens('(()()) ((())) () ((())()())')
+    [2, 3, 1, 3]
+    """
+    return [len(max(self._find_max_depth(parentheses), key=len)) for parentheses in paren_string.split()]
+
+    # only need to check up to the max depth of the most deeply nested parens
+

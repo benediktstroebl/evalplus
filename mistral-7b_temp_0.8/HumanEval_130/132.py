@@ -1,0 +1,36 @@
+
+def tri(n):
+    """Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in 
+    the last couple centuries. However, what people don't know is Tribonacci sequence.
+    Tribonacci sequence is defined by the recurrence:
+    tri(1) = 3
+    tri(n) = 1 + n / 2, if n is even.
+    tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.
+    For example:
+    tri(2) = 1 + (2 / 2) = 2
+    tri(4) = 3
+    tri(3) = tri(2) + tri(1) + tri(4)
+           = 2 + 3 + 3 = 8 
+    You are given a non-negative integer number n, you have to a return a list of the 
+    first n + 1 numbers of the Tribonacci sequence.
+    Examples:
+    tri(3) = [1, 3, 2, 8]
+    """
+    t0 = 1
+    t1 = 3
+    t2 = 2
+    if n == 1:
+        return [t0]
+    elif n == 2:
+        return [t0, t1]
+    elif n == 3:
+        return [t0, t1, t2]
+    elif n > 3:
+        l = [t0, t1, t2]
+        for i in range(n-3):
+            next_ = t0 + t1 + t2
+            t0 = t1
+            t1 = t2
+            t2 = next_
+            l.append(next_)
+        return l

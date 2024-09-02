@@ -1,0 +1,32 @@
+
+
+def sum_to_n(n: int):
+    """sum_to_n is a function that sums numbers from 1 to n.
+    >>> sum_to_n(30)
+    465
+    >>> sum_to_n(100)
+    5050
+    >>> sum_to_n(5)
+    15
+    >>> sum_to_n(10)
+    55
+    >>> sum_to_n(1)
+    1
+    """
+
+    # if n > 0:
+    #     return n + sum_to_n(n-1)
+    # else:
+    #     return 0
+
+    # while n > 0:
+    #     sum += n
+    #     n -= 1
+    # return sum
+
+    # for i in range(n+1):
+    #     sum += i
+    # return sum
+
+    return n * (n + 1) // 2
+

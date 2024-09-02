@@ -1,0 +1,23 @@
+
+def search(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+    # Write your code here.
+    dict = {}
+    for item in lst:
+        if item in dict:
+            dict[item] += 1
+        else:
+            dict[item] = 1
+    for item in dict.items():
+        if item[1] >= item[0]:
+            return item[0]
+    return -1

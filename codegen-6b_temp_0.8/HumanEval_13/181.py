@@ -1,0 +1,19 @@
+
+
+def greatest_common_divisor(a: int, b: int) -> int:
+    """ Return a greatest common divisor of two integers a and b
+    >>> greatest_common_divisor(3, 5)
+    1
+    >>> greatest_common_divisor(25, 15)
+    5
+    """
+    assert 0 < a, 'Value of a should be > 0'
+    assert 0 < b, 'Value of b should be > 0'
+    if a < b:
+        a, b = b, a
+
+    while a % b != 0:
+        a, b = b, a % b
+
+    return b
+

@@ -1,0 +1,28 @@
+
+def can_arrange(arr):
+    """Create a function which returns the largest index of an element which
+    is not greater than or equal to the element immediately preceding it. If
+    no such element exists then return -1. The given array will not contain
+    duplicate values.
+
+    Examples:
+    can_arrange([1,2,4,3,5]) = 3
+    can_arrange([1,2,3]) = -1
+    """
+    unique_nums = set()
+    for num in arr:
+        if num in unique_nums:
+            return -1
+        else:
+            unique_nums.add(num)
+
+    # enumerate all possible pairs that could be the last elements
+    for i in range(len(arr)):
+        if arr[i] >= arr[i-1]:
+            continue
+        else:
+            return i-1
+
+    # return -1 if no such element exists
+    return -1
+

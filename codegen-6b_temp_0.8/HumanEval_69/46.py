@@ -1,0 +1,31 @@
+
+def search(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+    # lst = [4, 1, 2, 2, 3, 1]
+    # lst = [1, 2, 2, 3, 3, 3, 4, 4, 4]
+    # lst = [5, 5, 4, 4, 4]
+    # lst = [6,6,6,6,6,6,6]
+    # lst = [7,7,7,7,7,7,7]
+    # lst = [8,8,8,8,8,8,8,8]
+    # lst = [9,9,9,9,9,9,9,9]
+    # lst = [10,10,10,10,10,10,10]
+    # lst = [1,1,2,2,3,3,3,3,4,4,5,5]
+    # lst = [1,1,2,2,3,3,3,3,4,4,5,5,6,6,6,6]
+    # lst = [4,4,4]
+    # lst = [1,1,2,2,3,3,3,3,4,4,5,5]
+    # lst = [1,1,2,2,3,3,3,3,4,4,5,5,6,6,6,6]
+    # lst = [1,1,1,1,1,1,1,2,2,3,4,4,4,4,4,4]
+    # lst = [1,1,1,1,1,1,2,2,3,4,4,5,5,6,6,6]
+    # lst = [1,1,1,1,1,1,1,1,1,1,1,1,1]
+    # lst = [1,1,1,1,1,1,1,1,1,1,1,1,1]
+    # lst = [1,1,1,1,1,1,1,1,1,1,1,1,1]
+    # lst = [1,1,1,

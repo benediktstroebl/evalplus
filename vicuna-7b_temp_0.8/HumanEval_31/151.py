@@ -1,0 +1,25 @@
+
+
+def is_prime(n):
+    """Return true if a given number is prime, and false otherwise.
+    >>> is_prime(6)
+    False
+    >>> is_prime(101)
+    True
+    >>> is_prime(11)
+    True
+    >>> is_prime(13441)
+    True
+    >>> is_prime(61)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(1)
+    False
+    """
+    # Check if n is prime
+    if n > 2:
+        # If n is prime, return True
+        if n % 2 == 1 or not gcd(n, n) == 1:
+            return True
+    return False

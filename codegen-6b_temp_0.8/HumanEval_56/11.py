@@ -1,0 +1,32 @@
+
+
+def correct_bracketing(brackets: str):
+    """ brackets is a string of "<" and ">".
+    return True if every opening bracket has a corresponding closing bracket.
+
+    >>> correct_bracketing("<")
+    False
+    >>> correct_bracketing("<>")
+    True
+    >>> correct_bracketing("<<><>>")
+    True
+    >>> correct_bracketing("><<>")
+    False
+    """
+    if not brackets:
+        return True
+    assert len(brackets) % 2 == 0
+    if len(brackets) == 1:
+        return True
+    
+    stack = []
+    for bracket in brackets:
+        if bracket == "<":
+            stack.append(">")
+        elif bracket == ">":
+            if len(stack) == 0:
+                return False
+            if stack.pop() != "<":
+                return False
+    return len(stack) == 0
+

@@ -1,0 +1,37 @@
+
+
+def is_prime(n):
+    """Return true if a given number is prime, and false otherwise.
+    >>> is_prime(6)
+    False
+    >>> is_prime(101)
+    True
+    >>> is_prime(11)
+    True
+    >>> is_prime(13441)
+    True
+    >>> is_prime(61)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(1)
+    False
+    """
+    # check for prime numbers less than 2
+    if n < 2:
+        return False
+
+    # check for composite numbers between 2 and 10000000000
+    if n < 10000000000:
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        for i in range(4, int(n**0.5) + 1, 6):
+            if n % i == 0:
+                return False
+        return True
+
+    # check for prime numbers greater than 10000000000
+    for i in range(10000000001, int(n**0.5) + 1, 6):
+        if n % i == 0:
+            return False
+    return True

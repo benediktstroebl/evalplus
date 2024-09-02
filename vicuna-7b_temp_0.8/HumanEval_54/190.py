@@ -1,0 +1,27 @@
+
+
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+    n0 = len(s0)
+    n1 = len(s1)
+    if n0 != n1:
+        return False
+    mapping = {ord(c): i for i, c in enumerate(s0)}
+    for i, c in enumerate(s1):
+        if ord(c) not in mapping:
+            return False
+    return True

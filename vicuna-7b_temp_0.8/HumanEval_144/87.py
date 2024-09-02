@@ -1,0 +1,29 @@
+
+def simplify(x, n):
+    """Your task is to implement a function that will simplify the expression
+    x * n. The function returns True if x * n evaluates to a whole number and False
+    otherwise. Both x and n, are string representation of a fraction, and have the following format,
+    <numerator>/<denominator> where both numerator and denominator are positive whole numbers.
+
+    You can assume that x, and n are valid fractions, and do not have zero as denominator.
+
+    simplify("1/5", "5/1") = True
+    simplify("1/6", "2/1") = False
+    simplify("7/10", "10/2") = False
+    """
+    if len(str(x)) == 0 or len(str(n)) == 0:
+        return False
+
+    if str(x).is_integer() and str(n).is_integer():
+        return True
+
+    if str(x).is_even() and str(n).is_odd():
+        return True
+
+    if str(x).is_odd() and str(n).is_even():
+        return True
+
+    if str(x).is_zero() and str(n).is_positive():
+        return True
+
+    return False

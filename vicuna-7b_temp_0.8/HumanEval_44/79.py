@@ -1,0 +1,23 @@
+
+
+def change_base(x: int, base: int):
+    """Change numerical base of input number x to base.
+    return string representation after the conversion.
+    base numbers are less than 10.
+    >>> change_base(8, 3)
+    '22'
+    >>> change_base(8, 2)
+    '1000'
+    >>> change_base(7, 2)
+    '111'
+    """
+    # base case
+    if x == 0:
+        return '0'
+    # calculate number of digits in the base
+    digits = 0
+    while x != 0:
+        digits += 1
+        x //= base
+    # convert to the base
+    return str(x)[:digits] + ('0' * (digits - len(str(x)) % digits))

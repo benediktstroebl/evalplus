@@ -1,0 +1,17 @@
+
+
+def unique(l: list):
+    """Return sorted unique elements in a list
+    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
+    [0, 2, 3, 5, 9, 123]
+    """
+    from collections import OrderedDict
+    from itertools import combinations
+    lst = []
+    seen = set()
+    for e in l:
+        if e in seen:
+            continue
+        seen.add(e)
+        lst.append(e)
+    return lst

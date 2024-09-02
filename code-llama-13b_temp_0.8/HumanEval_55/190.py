@@ -1,0 +1,19 @@
+
+
+def fib(n: int):
+    """Return n-th Fibonacci number.
+    >>> fib(10)
+    55
+    >>> fib(1)
+    1
+    >>> fib(8)
+    21
+    """
+
+    # 0 is the 0th Fibonacci number, 1 is the first
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    else:
+        return fib(n - 2) + fib(n - 1)

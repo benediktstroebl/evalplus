@@ -1,0 +1,22 @@
+
+def add_elements(arr, k):
+    """
+    Given a non-empty array of integers arr and an integer k, return
+    the sum of the elements with at most two digits from the first k elements of arr.
+
+    Example:
+
+        Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
+        Output: 24 # sum of 21 + 3
+
+    Constraints:
+        1. 1 <= len(arr) <= 100
+        2. 1 <= k <= len(arr)
+    """
+    n = 1
+    arr_length = len(arr)
+    while n <= k:
+        arr_digit = sum(map(int, [arr[i] for i in range(len(arr), min(arr_length, n + 1))] + [arr[i] for i in range(0, n)]))
+        n += 1
+    return arr_digit
+

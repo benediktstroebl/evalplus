@@ -1,0 +1,22 @@
+
+def unique_digits(x):
+    """Given a list of positive integers x. return a sorted list of all 
+    elements that hasn't any even digit.
+
+    Note: Returned list should be sorted in increasing order.
+    
+    For example:
+    >>> unique_digits([15, 33, 1422, 1])
+    [1, 15, 33]
+    >>> unique_digits([152, 323, 1422, 10])
+    []
+    """
+    
+    def contains_even_digit(n):
+        while n > 0:
+            if n % 2 == 0:
+                return True
+            n = n // 10
+        return False
+    
+    return sorted([x for x in x if not contains_even_digit(x)])

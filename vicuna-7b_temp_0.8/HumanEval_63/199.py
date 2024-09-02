@@ -1,0 +1,25 @@
+
+
+def fibfib(n: int):
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    >>> fibfib(1)
+    0
+    >>> fibfib(5)
+    4
+    >>> fibfib(8)
+    24
+    """
+    # If n < 2, return 0.
+    if n < 2:
+        return 0
+    # If n == 2, return 1.
+    if n == 2:
+        return 1
+    # If n is not 2 or 3, it is a non-leaf node in the FibFib tree.
+    # We need to compute the sum of fibfib(n-1), fibfib(n-2) and fibfib(n-3).
+    return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)

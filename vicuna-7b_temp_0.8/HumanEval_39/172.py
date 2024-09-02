@@ -1,0 +1,37 @@
+
+
+def prime_fib(n: int):
+    """
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """
+    def fib_generator(n):
+        """
+        fib_generator returns Fibonacci numbers
+        """
+        a, b = 0, 1
+        while b < n:
+            yield a
+            a, b = b, a + b
+
+    fib = fib_generator(n)
+    prime = [True] * n
+    for i in range(n):
+        if fib[i] in prime:
+            return fib[i]
+        if is_prime(fib[i]):
+            prime[fib[i]] = False
+            for j in range(i+1, n):
+                if j not in prime:
+                    prime[fib[i] * j] = True
+
+    return 0

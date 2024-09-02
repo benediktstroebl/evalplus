@@ -1,0 +1,71 @@
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+    
+    def max_k_elements(arr, k):
+        """
+        Return a list of length k with the maximum k numbers in arr. 
+
+        Return a list of length k with the maximum k numbers in arr.
+
+        Example 1:
+
+            Input: arr = [-3, -4, 5], k = 3
+            Output: [-4, -3, 5]
+
+        Example 2:
+
+            Input: arr = [4, -4, 4], k = 2
+            Output: [4, 4]
+
+        Example 3:
+
+            Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+            Output: [2]
+        """
+        if not arr or k > len(arr):
+            return []
+
+        # indices of the first k elements
+        start, end = 0, k
+
+        # first k elements
+        arr_k = arr[start:end]
+
+        # for each element, update arr_k with the largest 
+        # element(s) from arr of the remaining elements
+        for i in range(k, len(arr)):
+            idx = i - k
+            if arr_k[0] < arr[idx]:
+                arr_k = [arr[idx]] + arr_k
+            else:
+                arr_k.append(arr[idx])
+
+        return arr_k
+
+    # return max_k_elements(arr, k)
+    return max_k_elements_2(arr, k)
+

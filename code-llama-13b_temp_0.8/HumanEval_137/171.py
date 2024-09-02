@@ -1,0 +1,69 @@
+
+def compare_one(a, b):
+    """
+    Create a function that takes integers, floats, or strings representing
+    real numbers, and returns the larger variable in its given variable type.
+    Return None if the values are equal.
+    Note: If a real number is represented as a string, the floating point might be . or ,
+
+    compare_one(1, 2.5) ➞ 2.5
+    compare_one(1, "2,3") ➞ "2,3"
+    compare_one("5,1", "6") ➞ "6"
+    compare_one("1", 1) ➞ None
+    """
+    # if type(a) != type(b):
+    #     return None
+    #
+    # if a > b:
+    #     if type(a) == int or type(a) == float:
+    #         return a
+    #     if type(a) == str:
+    #         return a.replace(",", ".")
+    #
+    # if b > a:
+    #     if type(b) == int or type(b) == float:
+    #         return b
+    #     if type(b) == str:
+    #         return b.replace(",", ".")
+    #
+    # return None
+    #
+    #
+    # this one is wrong:
+    #
+    # if type(a) != type(b):
+    #     return None
+    #
+    # if type(a) == int or type(a) == float:
+    #     return a if a > b else b
+    #
+    # if type(a) == str:
+    #     a = float(a.replace(",", "."))
+    #     b = float(b.replace(",", "."))
+    #     return a if a > b else b
+
+    # this one is right:
+    #
+    # if type(a) != type(b):
+    #     return None
+    #
+    # if type(a) == int or type(a) == float:
+    #     return max(a, b)
+    #
+    # if type(a) == str:
+    #     a = float(a.replace(",", "."))
+    #     b = float(b.replace(",", "."))
+    #     return max(a, b)
+
+    # this one is wrong:
+    #
+    # if type(a) != type(b):
+    #     return None
+    #
+    # if type(a) == int or type(a) == float:
+    #     return a if a > b else b
+    #
+    # if type(a) == str:
+    #     a = float(a.replace(",", "."))
+    #     b = float(b.replace(",", "."))
+    #     return a if a >

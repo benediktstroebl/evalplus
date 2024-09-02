@@ -1,0 +1,22 @@
+
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    right_index = len(word) - 1
+    for left_index in range(len(word) - 2, -1, -1):
+        if not word[left_index] == word[left_index + 1] and word[left_index] in vowels:
+            return word[left_index]
+    return ""

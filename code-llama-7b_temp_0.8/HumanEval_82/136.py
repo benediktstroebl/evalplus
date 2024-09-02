@@ -1,0 +1,22 @@
+
+def prime_length(string):
+    """Write a function that takes a string and returns True if the string
+    length is a prime number or False otherwise
+    Examples
+    prime_length('Hello') == True
+    prime_length('abcdcba') == True
+    prime_length('kittens') == True
+    prime_length('orange') == False
+    """
+    if len(string) == 0 or len(string) == 1:
+        return False
+    if len(string) == 2 or len(string) == 3:
+        return True
+    if len(string) == 5 or len(string) == 7:
+        return True
+
+    for i in range(2, int(len(string)/2)):
+        if len(string) % i == 0:
+            return False
+        else:
+            return True

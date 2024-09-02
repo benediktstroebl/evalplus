@@ -1,0 +1,19 @@
+
+
+def largest_prime_factor(n: int):
+    """Return the largest prime factor of n. Assume n > 1 and is not a prime.
+    >>> largest_prime_factor(13195)
+    29
+    >>> largest_prime_factor(2048)
+    2
+    """
+    "*** YOUR CODE HERE ***"
+    m = n
+    i = 2
+    while i <= m:
+        if m % i == 0:
+            m = m // i
+            if m == 1:
+                return i
+        i = i + 1
+    return m
