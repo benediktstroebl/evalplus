@@ -65,7 +65,7 @@ def codegen(
         if dataset == "humaneval":
             from evalplus.data import get_human_eval_plus
 
-            dataset = get_human_eval_plus(version=version)
+            dataset = get_human_eval_plus()
         elif dataset == "mbpp":
             from evalplus.data import get_mbpp_plus
 
@@ -145,7 +145,7 @@ def main(
     jsonl_fmt: bool = False,
 ):
     assert dataset in ["humaneval", "mbpp"], f"Invalid dataset {dataset}"
-    assert backend in ["vllm", "hf", "openai"]
+    assert backend in ["vllm", "hf", "openai", "cohere"]
     assert evalperf_type is None or evalperf_type in [
         "instruct",
         "perf-instruct",

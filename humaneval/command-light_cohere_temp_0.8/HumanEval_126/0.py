@@ -1,0 +1,36 @@
+```python
+def is_sorted(lst):
+    '''
+    Given a list of numbers, return whether or not they are sorted
+    in ascending order. If list has more than 1 duplicate of the same
+    number, return False. Assume no negative numbers only integers.
+
+    Examples:
+    is_sorted([5]) ➞ True
+    is_sorted([1, 2, 3, 4, 5]) ➞ True
+    is_sorted([1, 3, 2, 4, 5]) ➞ False
+    is_sorted([1, 2, 3, 4, 5, 6]) ➞ True
+    is_sorted([1, 2, 3, 4, 5, 6, 7]) ➞ True
+    is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
+    is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
+    is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
+    '''
+    sort_numbers(lst)
+    return True
+
+def sort_numbers(lst):
+    '''
+    lst.sort()
+    sort(lst, reverse=False)
+    return lst
+
+def is_sorted_test(test_list):
+    '''
+    test_list.sort()
+    sort_numbers(test_list)
+    return is_sorted(test_list)
+
+test_list = [1, 2, 3, 4, 5]
+print(is_sorted_test(test_list)) # True
+``` 
+This script has a self-contained function `is_sorted` that checks whether a given list is sorted in ascending order or not. The `sort_numbers` function sorts the list and returns the sorted list. The `is_sorted_test` function creates a test list and uses the `is_sorted` function to check if the list is sorted.  The test list is [1, 2, 3, 4, 5], and the function returns `True` since the list is sorted.

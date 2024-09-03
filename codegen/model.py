@@ -329,6 +329,76 @@ class OpenAIChatDecoder(DecoderBase):
         return False
 
 
+import cohere
+import asyncio
+import json
+from typing import List
+from model import DecoderBase
+import traceback
+
+class CohereChatDecoder(DecoderBase):
+    def __init__(self, name: str, **kwargs) -> None:
+        super().__init__(name, **kwargs)
+        self.client = cohere.AsyncClient(os.getenv("COHERE_API_KEY"))
+        self.loop = asyncio.get_event_loop()
+
+    async def codegen_async(self, prompt: str, do_sample: bool = True, num_samples: int = 200) -> List[str]:
+        if do_sample:
+            assert self.temperature > 0, "Temperature must be positive for sampling"
+        batch_size = min(self.batch_size, num_samples)
+
+        message = self.instruction_prefix
+        # construct prompt
+        message += f"\n```python\n{prompt.strip()}\n```"
+
+        chat_history = [
+            {"role": "USER", "message": message},
+        ]
+
+        async def make_api_call():
+            try:
+                response = await self.client.chat(
+                    chat_history=chat_history,
+                    message=self.response_prefix,
+                    model=self.name,
+                    max_tokens=self.max_new_tokens,
+                    temperature=self.temperature,
+                )
+                content = response.text
+                return content
+            except Exception as e:
+                print(f"Error in Cohere API call: {e}")
+                return None
+
+        # Create a list of tasks
+        tasks = [asyncio.create_task(make_api_call()) for _ in range(batch_size)]
+
+        # Wait for all tasks to complete
+        outputs = await asyncio.gather(*tasks)
+
+        # Filter out None values (failed API calls)
+        return [output for output in outputs if output is not None]
+
+    def codegen(self, prompt: str, do_sample: bool = True, num_samples: int = 200) -> List[str]:
+        return self.loop.run_until_complete(self.codegen_async(prompt, do_sample, num_samples))
+
+    def is_direct_completion(self) -> bool:
+        return False
+
+    @classmethod
+    def create(cls, *args, **kwargs):
+        instance = cls(*args, **kwargs)
+        instance.loop.run_until_complete(instance.initialize())
+        return instance
+
+    async def initialize(self):
+        # Perform any async initialization here if needed
+        pass
+
+    def close(self):
+        # Close the event loop when you're done with the instance
+        self.loop.close()
+
 class MistralChatDecoder(DecoderBase):
     def __init__(self, name: str, **kwargs) -> None:
         super().__init__(name, **kwargs)
@@ -460,6 +530,14 @@ def make_model(
         )
     elif backend == "anthropic":
         return AnthropicMessageDecoder(
+            name=model,
+            batch_size=batch_size,
+            temperature=temperature,
+            instruction_prefix=instruction_prefix,
+            response_prefix=response_prefix,
+        )
+    elif backend == "cohere":
+        return CohereChatDecoder(
             name=model,
             batch_size=batch_size,
             temperature=temperature,
