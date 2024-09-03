@@ -15,8 +15,9 @@ except ImportError:
 
 # mistral.ai
 try:
-    from mistralai.client import MistralClient
-    from mistralai.models.chat_completion import ChatMessage
+    # from mistralai.client import MistralClient
+    # from mistralai.models.chat_completion import ChatMessage
+    pass
 except ImportError:
     warn("MistralAI decoder will not work. Fix by `pip install mistralai`")
 
@@ -337,18 +338,17 @@ from model import DecoderBase
 import traceback
 
 class CohereChatDecoder(DecoderBase):
-    def __init__(self, name: str, **kwargs) -> None:
+    def __init__(self, name: str, max_concurrent: int = 40, **kwargs) -> None:
         super().__init__(name, **kwargs)
         self.client = cohere.AsyncClient(os.getenv("COHERE_API_KEY"))
+        self.semaphore = asyncio.Semaphore(max_concurrent)
         self.loop = asyncio.get_event_loop()
 
     async def codegen_async(self, prompt: str, do_sample: bool = True, num_samples: int = 200) -> List[str]:
         if do_sample:
             assert self.temperature > 0, "Temperature must be positive for sampling"
-        batch_size = min(self.batch_size, num_samples)
 
         message = self.instruction_prefix
-        # construct prompt
         message += f"\n```python\n{prompt.strip()}\n```"
 
         chat_history = [
@@ -356,27 +356,22 @@ class CohereChatDecoder(DecoderBase):
         ]
 
         async def make_api_call():
-            try:
-                response = await self.client.chat(
-                    chat_history=chat_history,
-                    message=self.response_prefix,
-                    model=self.name,
-                    max_tokens=self.max_new_tokens,
-                    temperature=self.temperature,
-                )
-                content = response.text
-                return content
-            except Exception as e:
-                print(f"Error in Cohere API call: {e}")
-                return None
+            async with self.semaphore:
+                try:
+                    response = await self.client.chat(
+                        chat_history=chat_history,
+                        message=self.response_prefix,
+                        model=self.name,
+                        max_tokens=self.max_new_tokens,
+                        temperature=self.temperature,
+                    )
+                    return response.text
+                except Exception as e:
+                    print(f"Error in Cohere API call: {e}")
+                    return None
 
-        # Create a list of tasks
-        tasks = [asyncio.create_task(make_api_call()) for _ in range(batch_size)]
-
-        # Wait for all tasks to complete
+        tasks = [asyncio.create_task(make_api_call()) for _ in range(num_samples)]
         outputs = await asyncio.gather(*tasks)
-
-        # Filter out None values (failed API calls)
         return [output for output in outputs if output is not None]
 
     def codegen(self, prompt: str, do_sample: bool = True, num_samples: int = 200) -> List[str]:
@@ -399,45 +394,45 @@ class CohereChatDecoder(DecoderBase):
         # Close the event loop when you're done with the instance
         self.loop.close()
 
-class MistralChatDecoder(DecoderBase):
-    def __init__(self, name: str, **kwargs) -> None:
-        super().__init__(name, **kwargs)
-        self.client = MistralClient(api_key=os.getenv("MISTRAL_API_KEY"))
+# class MistralChatDecoder(DecoderBase):
+#     def __init__(self, name: str, **kwargs) -> None:
+#         super().__init__(name, **kwargs)
+#         self.client = MistralClient(api_key=os.getenv("MISTRAL_API_KEY"))
 
-    def codegen(
-        self, prompt: str, do_sample: bool = True, num_samples: int = 200
-    ) -> List[str]:
-        kwargs = {}
-        if do_sample:
-            assert self.temperature > 0, "Temperature must be positive for sampling"
-            kwargs["top_p"] = 0.95
-            kwargs["temperature"] = self.temperature
-        else:
-            self.temperature = 0
+#     def codegen(
+#         self, prompt: str, do_sample: bool = True, num_samples: int = 200
+#     ) -> List[str]:
+#         kwargs = {}
+#         if do_sample:
+#             assert self.temperature > 0, "Temperature must be positive for sampling"
+#             kwargs["top_p"] = 0.95
+#             kwargs["temperature"] = self.temperature
+#         else:
+#             self.temperature = 0
 
-        batch_size = min(self.batch_size, num_samples)
+#         batch_size = min(self.batch_size, num_samples)
 
-        outputs = []
-        for _ in range(batch_size):
-            ret = self.client.chat(
-                model=self.name,
-                messages=[
-                    ChatMessage(
-                        role="user",
-                        content=self.instruction_prefix
-                        + f"\n```python\n{prompt.strip()}\n```",
-                    )
-                ],
-                max_tokens=self.max_new_tokens,
-                **kwargs,
-            )
+#         outputs = []
+#         for _ in range(batch_size):
+#             ret = self.client.chat(
+#                 model=self.name,
+#                 messages=[
+#                     ChatMessage(
+#                         role="user",
+#                         content=self.instruction_prefix
+#                         + f"\n```python\n{prompt.strip()}\n```",
+#                     )
+#                 ],
+#                 max_tokens=self.max_new_tokens,
+#                 **kwargs,
+#             )
 
-            outputs.append(ret.choices[0].message.content)
+#             outputs.append(ret.choices[0].message.content)
 
-        return outputs
+#         return outputs
 
-    def is_direct_completion(self) -> bool:
-        return False
+#     def is_direct_completion(self) -> bool:
+#         return False
 
 
 class AnthropicDecoder(DecoderBase, ABC):
@@ -520,14 +515,14 @@ def make_model(
             instruction_prefix=instruction_prefix,
             response_prefix=response_prefix,
         )
-    elif backend == "mistral":
-        return MistralChatDecoder(
-            name=model,
-            batch_size=batch_size,
-            temperature=temperature,
-            instruction_prefix=instruction_prefix,
-            response_prefix=response_prefix,
-        )
+    # elif backend == "mistral":
+    #     return MistralChatDecoder(
+    #         name=model,
+    #         batch_size=batch_size,
+    #         temperature=temperature,
+    #         instruction_prefix=instruction_prefix,
+    #         response_prefix=response_prefix,
+    #     )
     elif backend == "anthropic":
         return AnthropicMessageDecoder(
             name=model,

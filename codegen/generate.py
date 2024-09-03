@@ -1,7 +1,11 @@
 import json
+from dotenv import load_dotenv
+load_dotenv()
 import os
 from os import PathLike
 from typing import List
+import weave
+import datetime
 
 from model import DecoderBase, make_model
 from rich.progress import (
@@ -151,6 +155,8 @@ def main(
         "perf-instruct",
         "perf-CoT",
     ]
+
+    weave.init(f"{model}_{dataset}_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}")
 
     if greedy and (temperature != 0 or bs != 1 or n_samples != 1):
         temperature = 0.0
