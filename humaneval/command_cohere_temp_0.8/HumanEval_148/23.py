@@ -1,0 +1,12 @@
+```python
+def bf(planet1, planet2):
+    planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+    p1, p2 = -1, -1
+    for i, cur_planet in enumerate(planets):
+        if cur_planet == planet1: p1 = i
+        if cur_planet == planet2: p2 = i
+    if p1 == -1 or p2 == -1: return ()
+    return (planets[p2], planets[p2+1:p1])
+``` 
+
+The function first collects planet names in the `planets` list in the correct order. Then it searches for the indices of `planet1` and `planet2` in the list using the `enumerate` statement, which allows us to iterate through the list and access the index of each element simultaneously. If none of the planets are found, the function returns an empty tuple `()`. If both planets are found, the function returns a tuple of all planets whose index is between `p2` and `p1-1`, sorted by proximity to the sun (the planets in the list are sorted by proximity to the sun).

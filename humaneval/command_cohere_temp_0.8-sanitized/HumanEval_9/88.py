@@ -1,0 +1,2 @@
+import unittest
+from rolling_max import rolling_max

@@ -1,0 +1,9 @@
+def right_angle_triangle(a, b, c):
+    # Calculate the length of the hypotenuse
+    hypotenuse = (a ** 2 + b ** 2) ** 0.5
+    
+    # Check if the triangle is right-angled
+    if hypotenuse == c or hypotenuse ** 2 == c ** 2 + b ** 2 or hypotenuse ** 2 == a ** 2 + c ** 2:
+        return True
+    else:
+        return False

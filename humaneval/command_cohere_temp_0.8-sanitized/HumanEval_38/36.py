@@ -1,0 +1,10 @@
+def decode_cyclic(s: str) -> str:
+    """
+    Decodes a string s encoded with encode_cyclic.
+    Returns the decoded string.
+    """
+    # Split string into groups of three.
+    groups = [s[i:i+3] for i in range(0, len(s), 3)]
+    # Cycle elements in each group.
+    groups = [group[0] + group[2:] for group in groups]
+    return ''.join(groups)

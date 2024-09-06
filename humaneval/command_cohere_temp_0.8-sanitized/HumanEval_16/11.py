@@ -1,0 +1,2 @@
+import unittest
+from count_distinct_characters import count_distinct_characters

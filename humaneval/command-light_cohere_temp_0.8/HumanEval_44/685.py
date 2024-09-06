@@ -1,0 +1,1 @@
+Here is a Python script that contains a self-contained function that changes the base of an input number to a specified base. The function `change_base` takes two arguments: the number `x` and the base `base`. It returns the string representation of the number after applying the conversion rule.

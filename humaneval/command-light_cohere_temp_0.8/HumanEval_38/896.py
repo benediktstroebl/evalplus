@@ -1,0 +1,1 @@
+Here's a self-contained Python script that solves the markdown code encoding and decoding problem. The code is well structured, and the function `encode_markdown` encodes the markdown code and the function `decode_markdown` decodes it back.

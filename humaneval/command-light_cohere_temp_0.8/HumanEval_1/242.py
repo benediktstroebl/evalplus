@@ -1,0 +1,1 @@
+Certainly! This script contains a function that splits a given string into a list of separate groups of balanced parentheses. The function is also designed to pass all the tests for this problem.

@@ -1,0 +1,1 @@
+A solution to the problem of creating a palindrome is indeed a good approach. This solution creates a strategy for constructing the longest palindrome using a supplied string.

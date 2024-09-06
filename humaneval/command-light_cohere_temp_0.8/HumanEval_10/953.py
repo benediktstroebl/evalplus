@@ -1,0 +1,1 @@
+This code implements the function 'make_palindrome', which creates the shortest palindrome using a simple algorithm. It uses the might string's reverse to create the palindrome.

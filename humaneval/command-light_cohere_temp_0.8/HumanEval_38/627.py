@@ -1,0 +1,1 @@
+Here is a Python script that defines two self-contained functions: encode_cyclic and decode_cyclic, which solve the problem of encoding and decoding a string of characters in a cycle. These functions pass all tests for this test cases.

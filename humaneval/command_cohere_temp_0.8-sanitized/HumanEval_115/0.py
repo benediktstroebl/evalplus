@@ -1,17 +1,19 @@
 import math
 def max_fill(grid, capacity):
-    wells = len(grid)
-    rows = len(grid[0]) 
-    filled_wells = 0
+    filled_rows = sum(sum(row) for row in grid)
+    max_fill_count = filled_rows // capacity
+    buckets = max_fill_count * capacity
     
-    for i in range(wells):
-        row = 0
-        for j in range(rows):
-            if grid[i][j] == 1:
-                filled_wells += row
-                row += 1
+    for row in grid:
+        bins = 0
+        for j in range(len(row)):
+            if row[j] == 1:
+                bins += 1
+                if bins > capacity:
+                    buckets += bins // capacity
+                    bins = capacity
             else:
-                row += capacity 
-        filled_wells += row 
+                bins = 0
+        buckets += bins
     
-    return filled_wells
+    return buckets

@@ -1,0 +1,1 @@
+Here's a self-contained Python script with a function that calculates the Mean Absolute Deviation (MAD) for a given list of input numbers and passes the test.

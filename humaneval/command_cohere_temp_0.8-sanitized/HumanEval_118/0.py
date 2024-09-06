@@ -6,16 +6,15 @@ def get_closest_vowel(word):
                 vowel = True
             else:
                 vowel = False
-            if not vowel and char.lower() not in 'qvwxz':
+            if not vowel and char.lower() not in 'bcdfghjklmnpqrstvwxyz':
                 cons_count += 1
         elif char.isspace():
             continue
-        elif char.isdigit():
-            if cons_count > 0:
-                return char
-        else:
+        elif char == '-':
             continue
-    if cons_count > 0 and cons_count % 2 == 1:
-        return char
-    else:
-        return ''
+        else:
+            return ''
+    if cons_count > 1:
+        if word[-2].lower() in 'aeiou':
+            return word[-2]
+    return ''

@@ -1,0 +1,1 @@
+import sum_squares

@@ -1,0 +1,34 @@
+```python
+def is_prime_length(length):
+    """
+    Returns True if the inputted number is a prime number, else False.
+    Args:
+        length (int): The length of the input string to be checked if its length is a prime number
+    Returns:
+        bool
+    """
+    if length <= 1:
+        return False
+    for i in range(2, int(length**0.5) + 1):
+        if length % i == 0:
+            return False
+    return True
+
+def prime_length(string):
+    """Write a function that takes a string and returns True if the string
+    length is a prime number or False otherwise
+    """
+    return is_prime_length(len(string))
+```
+
+This function defines a helper function `is_prime_length` that checks if a given number is prime or not. Then the main function `prime_length` passes the length of the input string to the helper function and returns the boolean value accordingly.
+
+The given example cases successfully pass using this code:
+```python
+print(prime_length('Hello'))  # Outputs True
+print(prime_length('abcdcba'))  # Outputs True
+print(prime_length('kittens'))  # Outputs True
+print(prime_length('orange'))  # Outputs False
+```
+
+This code can easily be added to a script or a python module to be used for other cases as well.

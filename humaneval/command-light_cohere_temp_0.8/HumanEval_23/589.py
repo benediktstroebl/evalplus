@@ -1,0 +1,1 @@
+Certainly! The provided Python code defines a function `strlen` that calculates and returns the length of a given string.

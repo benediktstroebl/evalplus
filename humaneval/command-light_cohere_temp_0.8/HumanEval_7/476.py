@@ -1,0 +1,3 @@
+The provided Python script defines a function **`filter_by_substring`** that filters a list of strings for a given substring. It uses the important `List` to convert the input strings and substring into a list of characters, then iterates through this list and uses a filter operation to check if each character matches the substring.
+
+The function returns a new list containing only the strings that contain the specified substring, effectively filtering out any strings that do not contain it.

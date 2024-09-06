@@ -1,0 +1,1 @@
+Certainly, I have provided a self-contained Python function that solves the problem of XORing two strings in Markdown code blocks.

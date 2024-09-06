@@ -1,0 +1,11 @@
+def derivative(xs: list) -> list:
+    """ Returns the derivative of a polynomial represented by its coefficients xs. """
+    result = [0] * (len(xs) - 1)
+    x = 0
+    for i in range(len(xs)):
+        result[i] = xs[i] / (i + 1)
+        x += 1
+        while x > 0 and i + x < len(xs) and xs[i + x] != 0:
+            result[i] += xs[i + x] / (i + x + 1)
+            x += 1
+    return result

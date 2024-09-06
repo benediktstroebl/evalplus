@@ -1,0 +1,1 @@
+Here is a self-contained Python function that solves the problem of calculating the mean absolute deviation in Markdown code:

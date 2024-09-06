@@ -1,0 +1,1 @@
+Here is a Python script that includes a self-contained function to calculate the area of the triangle, along with passing the unit tests.

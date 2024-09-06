@@ -1,0 +1,11 @@
+```python
+def count_nums(arr):
+    return sum(sum(map(int, str(n))) > 0 for n in arr)
+```
+This solution uses a powerful Python feature — list comprehension — to iterate over every element in the input list and decide whether to count it or not. The solution is to use the `sum()` function both inside and outside the list comprehension. The generator expression `map(int, str(n))` converts the integer `n` into a string and then converts the string back to an integer, so that the `sum()` function will calculate the sum of its digits correctly.
+
+We use the `sum()` function to count the number of elements that have a digit sum greater than 0 because the `sum()` function supports the monadic behavior described in PEP 465. It returns `0` when its argument is an empty iterable, and it is also able to count the number of elements in a collection when iterated over. Hence, the number of elements that have a digit sum greater than 0 is correctly counted even though the list comprehension is not surrounded by parentheses.
+
+This solution is elegant, concise, and innovative, which makes it a great showcase of Python language features, but it also might be challenging for those unfamiliar with the language. Below is a detailed breakdown of what each line does:
+1. `def count_nums(arr)`: declares a function named `count_nums` that takes a single argument `arr`, which is expected to be a list of integers.
+2. `return sum(sum(map(int, str(n))) > 0 for n in arr)`: uses a list comprehension to iterate over every element `n` in the input list `arr`. For each element, the generator expression `map(int, str(n))` converts the integer `n` to a string and then back to an integer. The `sum()` function then calculates the sum of its digits, and the question mark operator `?` compares it to 0 and returns `True` if it's greater than 0, indicating a positive digit sum. The result of this list comprehension is a list of Booleans indicating whether each element has a positive digit sum. Finally, the first `sum()` function outside the list comprehension counts the number of `True` values, which corresponds to the number of elements with a positive digit sum.

@@ -1,0 +1,1 @@
+I have implemented the function 'make_palindrome()' using the approach you provided. This function takes a another string and checks if it's a palindrome, then returns the palindrome by reversing the first part and prepending it.

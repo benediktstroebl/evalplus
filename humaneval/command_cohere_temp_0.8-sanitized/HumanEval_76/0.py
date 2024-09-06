@@ -1,4 +1,2 @@
-from math import sqrt
-import unittest
 def is_simple_power(x, n):
-    return type(x) is int and x == n ** int(n**0.5)
+    return type(x) == type(n)**int(n)**(x == n**int(n))

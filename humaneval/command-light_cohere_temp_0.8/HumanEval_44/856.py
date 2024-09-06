@@ -1,0 +1,12 @@
+```python
+def change_base(x: int, base: int):
+    """
+    Change the numerical base of input number x to base B.
+    Returns string representation after conversion.
+    base numbers less 10.
+    >>> change_base(8, 3)  # returns '22'
+    >>> change_base(8, 2)  # returns '1000'
+    >>> change_base(7, 2)  # returns '111'
+    """
+    return '{:04b}'.format(x, base)
+```

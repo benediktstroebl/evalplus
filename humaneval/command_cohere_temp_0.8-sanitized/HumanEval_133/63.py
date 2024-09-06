@@ -1,0 +1,2 @@
+import unittest
+from sum_squares import sum_squares

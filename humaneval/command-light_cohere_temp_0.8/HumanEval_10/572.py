@@ -1,0 +1,3 @@
+The function is_palindrome() returns a boolean value indicating whether the input string is a palindrome or not. The function works by comparing the string with its reverse using the slicing operator to check if they are equal. 
+
+The function make_palindrome() returns a new string with the shortest palindrome. It uses a algorithm that begins by looking for the longest palindrome in the string. Once the palindrome is found, the function reverses the string prefix and appends it to the end of the original string.

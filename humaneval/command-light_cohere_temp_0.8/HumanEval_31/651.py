@@ -1,0 +1,17 @@
+```python
+def is_prime(n):
+    """Check if a given number is prime."""
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+```
+This code defines a function `is_prime` that checks whether a given number `n` is prime or not. It uses a dry updating methods: if `n` is less than or equal to 1, it returns `False`, if `n` is less than or equal to 3 it returns `True`, and if `n` doesn't meet those criteria, it uses a trial-based primality testing method with a loop. The loop iterates up square root of `i` to the square root of `n`, if `n` is divisible by `i` or `i + 2`, it returns `False`.  This function can be used to check if any number is prime or not, it passes all the test cases.

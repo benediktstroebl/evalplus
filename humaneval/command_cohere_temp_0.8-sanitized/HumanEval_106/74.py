@@ -1,0 +1,13 @@
+def f(n):
+    list_man = []
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            list_man.append(factorial(i))
+        else:
+            list_man.append(sum(range(1, i+1)))
+    return list_man
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result = result * i
+    return result

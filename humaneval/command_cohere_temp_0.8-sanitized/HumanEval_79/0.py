@@ -1,3 +1,4 @@
 def decimal_to_binary(decimal):
-    binary_str = "{0:b}".format(decimal)
-    return "db{0}db".format(binary_str)
+    """Returns binary string for given decimal number with extra 'db' chars"""
+    bin_str = f"db{bin(decimal)[2:]}.replace('0b', '').rjust(len(str(decimal)), '1')"
+    return f"db{bin_str}db"

@@ -1,0 +1,13 @@
+```python
+def even_odd_palindrome(n):
+    even, odd = 0, 0
+    for i in range(1, n+1):
+        s = str(i)
+        if s == s[::-1] and int(s) % 2 == 0:
+            even += 1
+        elif s == s[::-1] and int(s) % 2 != 0:
+            odd += 1
+    return (even, odd)
+```
+
+The `even_odd_palindrome` function iterates through numbers from 1 to `n` and checks if each number is a palindrome. Subsequently, it verifies if the number is divisible by 2 to determine whether it counts towards the even or odd palindrome count. The solution is encapsulated in a self-contained Python script, designed to operate independently, and provides an efficient means of solving the problem without relying on external variables or modules.

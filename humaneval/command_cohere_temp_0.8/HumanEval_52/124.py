@@ -1,0 +1,27 @@
+```python
+def below_threshold(l: list, t: int) -> bool:
+    return all(x < t for x in l)
+```
+This function uses the `all` function to iterate over each element in the input list `l` and compare each element with the threshold value `t`. 
+
+Here is an example usage of the function:
+```python
+print(below_threshold([1, 2, 4, 10], 100))
+```
+This will return:
+```
+True
+```
+The function will return `True` because all the numbers in the list are below the threshold value of 100.
+
+Here is another example usage of the function:
+```python
+print(below_threshold([1, 20, 4, 10], 5))
+```
+This will return:
+```
+False
+```
+The function will return `False` because the list contains a number (20) that is above the threshold value of 5. 
+
+This revised version of the script is simpler and more straightforward, directly using the `all` function for the comparison, making the code more concise and easier to understand while still achieving the same result.

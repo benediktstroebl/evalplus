@@ -1,0 +1,1 @@
+The provided Python code defines a function is_palindrome that checks whether a given string is a palindrome or not, and another function make_palindrome that constructs the shortest palindrome using the supplied string.

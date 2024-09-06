@@ -1,0 +1,26 @@
+Here's a Python script that includes a self-contained function to solve the problem of counting even and odd integer palindromes within a given range:
+```python
+def count_palindromes(n):
+    even, odd = 0, 0
+    for i in range(1, n+1):
+        if str(i) == str(i)[::-1]:
+            if i % 2 == 0:
+                even += 1
+            else:
+                odd += 1
+    return even, odd
+
+def even_odd_palindrome(n):
+    """
+    Given a positive integer n, return a tuple that has the number of even and odd
+    integer palindromes that fall within the range(1, n), inclusive.
+    """
+    even, odd = count_palindromes(n)
+    return (even, odd)
+
+# Test cases
+print(even_odd_palindrome(3))  # Output: (1, 2)
+print(even_odd_palindrome(12))  # Output: (4, 6)
+```
+
+In the function `count_palindromes`, we iterate through numbers from `1` to `n` and keep track of even and odd palindromes using the `even` and `odd` counts. The function `even_odd_palindrome` encapsulates this process and returns the count as a tuple. The test cases demonstrate the function's behavior for different input values.

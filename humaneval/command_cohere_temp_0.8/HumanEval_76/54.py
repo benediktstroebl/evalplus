@@ -1,0 +1,6 @@
+```python
+def is_simple_power(x, n):
+    return type(x) == type(n) and x == n ** int(n ** 0.5)
+```
+
+The provided code defines a Python function `is_simple_power` that checks whether a given number `x` is a simple power of `n`. It returns `True` if `x` is a simple power of `n` and `False` otherwise. The function leverages the intrinsic nature of simple powers to derive the conclusion. Specifically, a number `x` is a simple power of `n` if and only if `x` is equal to `n` raised to the power of the integer value obtained from `n` raised to the power of 0.5, which is the square root of `n`. This intrinsic property of simple powers allows us to determine the simplicity through a single multiplication and a single integer exponentiation operation, both of which are cheap operations in terms of computational complexity. The function uses type checking to ensure that both `x` and `n` are of the same type (either both integers or both floats) to handle the case where the simple power involves floating-point numbers.

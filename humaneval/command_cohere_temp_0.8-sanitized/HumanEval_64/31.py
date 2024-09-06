@@ -1,0 +1,14 @@
+def vowels_count(s):
+    """
+    This function counts the number of vowels in a given string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+    """
+    vowel_count = 0
+    word_end = s.endswith("y")
+    for char in s:
+        if char in "aieou":
+            vowel_count += 1
+        elif char == "y" and word_end:
+            vowel_count += 1
+    return vowel_count

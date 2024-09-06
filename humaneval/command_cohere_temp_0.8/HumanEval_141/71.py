@@ -1,0 +1,42 @@
+```python
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    if not file_name or not isinstance(file_name, str):
+        return "No"
+    files = file_name.split(".")
+    if len(files) != 2:
+        return "No"
+    # Check for special cases
+    if files[0] == "" or not files[0][0].isalpha():
+        return "No"
+    if files[1] not in ["txt", "exe", "dll"]:
+        return "No"
+    # Count digits
+    total_digits = 0
+    for char in files[0]:
+        if char.isdigit():
+            total_digits += 1
+    if total_digits > 3:
+        return "No"
+    return "Yes"
+```
+This Python script defines a function `file_name_check` that takes the file name as input and returns 'Yes' if the file name is valid, and 'No' otherwise based on the conditions provided in the problem. 
+The function checks if the input violates the rules regarding the number of digits, the presence of exactly one dot, the empty first part of the name, and the start letter of the first part, and the content of the second part of the name. 
+The script provides a function that can be used to check whether a given file name is valid or not, and provides comments inside the code explaining the different conditions and lines of code for easier understanding. It also provides insight into theasons behind each condition and its applicability using comments. 
+If the file name does not meet all of these conditions, the function returns 'No'. You can use this function to validate file names dynamically and efficiently. 
+Let's break down the key components of the code step by step:
+1. The code starts with a docstring `def file_name_check(file_name):`, which is a multi-line comment that describes the functionality of the function in question. Following best practices, it adequately explains what the function does, how it behaves, and what the expected inputs are. In addition, it references the problems' description from which this script was created, making it easier to understand for someone reading the code.
+2. The function `file_name_check` takes a single argument, `file_name`, which is a string that represents the name of a file. This is the variable that will be checked to see if it complies with the described conditions for a valid file name.
+3. The code then checks for two base cases: if `file_name` is either empty or not a string, it immediately returns 'No' as these are essential prerequisites for a file name and are thus part of the

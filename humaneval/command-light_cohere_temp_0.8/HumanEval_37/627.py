@@ -1,0 +1,13 @@
+```python
+def sort_even(lst):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the odd index, while its values at the even index are equal to the values of the even indicies of l, but sorted.
+    >>> sort_even([1, 2, 3])
+    [1, 2, 3]
+    >>> sort_even([5, 6, 3, 4])
+    [3, 6, 5, 4]
+    >>> sort_even([10, 2, 4, 8])
+    [4, 8, 10, 2]
+    """
+    return lst[:] if len(lst) % 2 == 0 else lst[:-][::-1]
+```

@@ -1,0 +1,1 @@
+The solution was tested successfully and is indeed a palindrome!

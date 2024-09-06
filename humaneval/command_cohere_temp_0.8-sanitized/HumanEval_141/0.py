@@ -12,34 +12,17 @@ def file_name_check(file_name):
     file_name_check("example.txt") # => 'Yes'
     file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
     """
-    if not isinstance(file_name, str):
-        return "File name should be a string"
-    
-    if not file_name.isalpha():
-        return "FileName must start with a letter"
-    
-    dot_index = file_name.find(".")
-    if dot_index < 0 or dot_index + 1 == len(file_name):
-        return "File name should contain exactly one dot"
-    
-    prefix = file_name[:dot_index]
-    
-    if not prefix.isalpha():
-        return "File name should start with a letter"
-    
-    if len(prefix) > 8 or len(prefix) == 0:
-        return "The substring before the dot should have between (0-8) characters"
-    
-    if dot_index + 2 == len(file_name):
-        return "The file's name should have at least two characters after the dot"
-    
-    suffix = file_name[dot_index + 1:]
-    valid_suffix = ["txt", "exe", "dll"]
-    if suffix not in valid_suffix:
-        return "Valid file extensions are: txt, exe, dll"
-    
-    digits = sum(1 for c in file_name if c.isdigit())
-    if digits > 3:
-        return "File name should not contain more than three digits"
-    
+    if not file_name or not isinstance(file_name, str):
+        return "No"
+    files = file_name.split(".")
+    if len(files) != 2:
+        return "No"
+    if files[0].strip() == "":
+        return "No"
+    if not files[0][0].isalpha():
+        return "No"
+    if len(files[0].replace(".", "").replace("^A-Z", "").replace("^a-z", "").replace("0123456789", "")) > 3:
+        return "No"
+    if files[1] not in ["txt", "exe", "dll"]:
+        return "No"
     return "Yes"

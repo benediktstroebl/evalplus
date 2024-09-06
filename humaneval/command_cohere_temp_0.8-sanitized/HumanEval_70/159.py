@@ -1,0 +1,25 @@
+def strange_sort_list(lst):
+    # Initialize the minimum and maximum values
+    min_val = min(lst)
+    max_val = max(lst)
+    
+    # Initialize the output list with the minimum value
+    sorted_list = [min_val]
+    
+    # Iterate through the original list
+    for val in lst:
+        if val == min_val:
+            # If the current value is the minimum, add it to the output list
+            sorted_list.append(val)
+        elif val == max_val:
+            # If the current value is the maximum, replace the minimum value in the output list
+            sorted_list.append(val)
+            min_val = max_val
+        else:
+            # Otherwise, update the maximum value
+            max_val = val
+    
+    # Add remaining elements in the list
+    sorted_list.extend(lst[len(sorted_list):])
+    
+    return sorted_list

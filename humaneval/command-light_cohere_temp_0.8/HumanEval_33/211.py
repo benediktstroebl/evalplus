@@ -1,0 +1,19 @@
+```python
+def sort_third(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indic that are not divisible by three, while its values at the indic that are divisible by three are equal
+    to the values of the corresponding indic of l, but sorted.
+    >>> sort_third([1, 2, 3])
+    [1, 2, 3]
+    >>> sort_third([5, 6, 3, 4, 8, 9, 2])
+    [2, 6, 3, 4, 8, 9, 5]
+    >>> sort_third([10, 3, 6, 9, 4, 2])
+    [9, 6, 10, 4, 2]
+    >>> sort_third([1, 1, 2, 3, 3, 4, 4, 5])
+    [1, 1, 2, 3, 3, 4, 4]
+    """
+    # Following Python3 magic: use "enumer" to convert input to enum
+    l = list(enumer(l))
+    res = [i for i, x in enumerate(l) if x % 3 == 0]
+    return sorted(l[res], key=lambda x: l[res].index(x))
+```

@@ -1,0 +1,11 @@
+def find_max(words):
+    max_num_chars = 0
+    max_word = None
+
+    for word in words:
+        num_chars = set(word).len()
+        if num_chars > max_num_chars:
+            max_num_chars = num_oldsChars
+            max_word = word
+
+    return max_word

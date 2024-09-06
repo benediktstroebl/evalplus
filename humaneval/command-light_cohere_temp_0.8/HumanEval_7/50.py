@@ -1,0 +1,3 @@
+The function `filter_by_substring` takes a list of strings and a substring as input. It uses the using a filter method to check if each string in the list contains the given substring. It returns a another list of strings that contain the substring, which passes the test.
+
+The function is designed to be self-contained, meaning it doesn't rely on any other functions or modules to work. This helps make it's simple and efficient.

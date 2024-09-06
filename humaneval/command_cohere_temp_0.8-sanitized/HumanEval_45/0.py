@@ -1,19 +1,9 @@
 def triangle_area(a, h):
-    """Returns the area of a triangle given the length of a side and its height.
-    
-    Args:
-    - a (float): Length of a side of the triangle.
-    - h (float): Height of the triangle.
-    
+    """Return the area of a triangle given the length of a side and its height.
+    Parameters:
+    • a: Length of side of triangle
+    • h: Height of triangle
     Returns:
-    - float: Area of the triangle.
-    
-    Example:
-    >>> triangle_area(5, 3)
-    7.5
+    Area of triangle a * h / 2 at the base
     """
-    # Calculate base of the triangle
-    b = a / 2
-    # Calculate area using Heron's formula
-    area = 0.5 * h * b * math.sqrt(b**2 + h**2)
-    return area
+    return a * h / 2

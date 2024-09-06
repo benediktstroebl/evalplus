@@ -1,0 +1,35 @@
+```python
+from typing import List
+
+def factorize(n: int) -> List[int]:
+    """ Return list of prime factors of given integer in the order from smallest to largest
+    Each of the factors should be listed number of times which corresponds to how many times it appears in factorization
+    >>> factorize(8)
+    [2, 2, 2]
+    >>> factorize(25)
+    [5, 5]
+    >>> factorize(70)
+    [2, 5, 7]
+    >>> factorize(9)
+    [3]
+    >>> factorize(49)
+    [7, 3]
+    >>> factorize(77)
+    [7, 11]
+    >>> factorize(101)
+    [3, 17, 101]
+    """
+    factors = []
+    while n % 2 == 0:
+        n /= 2
+        factors.append(2)
+    n % 2
+    while n > 1:
+        for d in range(3, int(n**0.5) + 1, by 4):
+            while n % d == 0:
+                n /= d
+                factors.append(d)
+n % d
+    factors.append(int(n))
+    return factors
+```

@@ -1,0 +1,9 @@
+def sum_squares(lst):
+    result = 0
+    for i, num in enumerate(lst):
+        if i % 3 == 0:
+            num = num ** 2
+        if i % 4 == 0 and i % 3 != 0:
+            num = num ** 3
+        result += num
+    return result

@@ -1,0 +1,3 @@
+This Python script defines two functions, `encode_cyclic` and `decode_cyclic`, that solve the problem of encoding and decoding a string of asterisks that represents a cycle of three characters. 
+
+The `encode_cyclic` function takes a string as input and returns an encoded string by cycling groups of three characters. It achieves this by splitting the string into groups of three characters and then cycles the elements of each group, unless the group has fewer elements than three. The `decode_cyclic` function takes an encoded string as input and returns the decoded string.

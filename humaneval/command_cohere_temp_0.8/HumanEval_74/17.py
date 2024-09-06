@@ -1,0 +1,5 @@
+```python
+def total_match(lst1, lst2):
+    return lst1 if len(lst1) == len(lst2) else len(lst1) < len(lst2) and lst1 or lst2
+```
+This Python script defines a function called `total_match` that takes two lists of strings, `lst1` and `lst2`, as input. The purpose of this function is to determine which of the two lists has a total character count in its strings that is less than the other. If both lists have an equal count, the function returns the first list (`lst1`). The logic employed utilizes Python's short-circuit evaluation, which allows for conditional expressions that check the length of both lists. This is followed by a logical OR operation that returns the list with the lowest character count when one of the lists has a lesser count than the other. This ensures the function returns the list with the fewest characters while still prioritizing lists with equal counts.

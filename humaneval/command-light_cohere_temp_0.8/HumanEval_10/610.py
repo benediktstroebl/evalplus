@@ -1,0 +1,1 @@
+This is a Python script with a self-contained function that solves the problem and passes corresponding tests. It utilizes a `make_palindrome()` function that finds the shortest palindrome that begins with a supplied string:

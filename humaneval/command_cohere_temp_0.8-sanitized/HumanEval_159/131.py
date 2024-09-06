@@ -1,0 +1,11 @@
+def eat(n, need, rem):
+    """
+    You're a hungry rabbit, and you already have eaten a certain number of carrots,
+    but now you need to eat more carrots to complete the day's meals.
+    you should return an array of [ total number of eaten carrots after your meals,
+                                    the number of carrots left after your meals ]
+    if there are not enough remaining carrots, you will eat all remaining carrots, but will still be hungry.
+    """
+    ate = n+min(n, need)
+    leftover = max(0, rem-ate)
+    return [ate, leftover]

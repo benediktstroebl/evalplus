@@ -1,0 +1,10 @@
+```python
+def count_ones(n):
+    return bin(n).count('1')
+
+def sort_array(arr):
+    arr.sort(key=lambda n: (count_ones(n), -n))
+    return arr
+```
+
+This code defines a `count_ones` function that calculates the number of ones in a given number's binary representation. It also defines the `sort_array` function, which sorts the given array using a custom sorting key. This key is a tuple, with the first element representing the number of ones in the binary representation and the second element being the absolute value of the number. This ensures that numbers with the same number of ones will be sorted based on their decimal value in descending order.

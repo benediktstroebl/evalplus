@@ -1,0 +1,15 @@
+```python
+from typing import List
+
+def filter_integers(values: List[Any]) -> List[int]:
+    """
+    Filter given list of any Python values only for integers.
+    """
+    integers = []
+    for value in values:
+        if isinstance(value, int):
+            integers.append(value)
+    return integers
+```
+
+The function `filter_integers` takes a list of values of any type and returns a list of integers by filtering out any non-integer values. It uses the `isinstance` function to check if each value in the input list is an instance of the `int` class, and if so, it includes that value in the `integers` list which is returned at the end. The function ignores any non-integer values, such as strings, floats, dictionaries, or lists.

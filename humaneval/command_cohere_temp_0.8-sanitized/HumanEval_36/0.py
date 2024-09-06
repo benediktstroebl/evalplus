@@ -1,3 +1,11 @@
+import math
 def fizz_buzz(n):
-    less_than_n = [int(x) for x in range(n - 1, 1, -1)]
-    return sum(1 for x in less_than_n if x % 11 == 0 or x % 13 == 0 and x % 7 != 0)
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13."""
+    # Calculate the ceiling value of n/11 and n/13
+    m11, m13 = (n + 10) // 11, (n + 12) // 13
+    # Calculate the expected count of 7s
+    count = (m11 + m13) * 2
+    # Adjust the count for n being a multiple of both 11 and 13
+    if n == 11 * 13:
+        count -= 2
+    return count

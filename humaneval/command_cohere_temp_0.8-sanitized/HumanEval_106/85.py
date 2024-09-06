@@ -1,0 +1,7 @@
+def f(n):
+    facts = [0] * n
+    sums = [0] * n
+    for i in range(1, n+1):
+        facts[i & -i - 1] = math.factorial(i)
+        sums[i] = sum(range(1, i+1))
+    return facts + sums

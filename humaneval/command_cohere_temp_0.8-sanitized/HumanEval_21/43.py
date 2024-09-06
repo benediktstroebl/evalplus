@@ -1,0 +1,10 @@
+from typing import List
+def rescale_to_unit(numbers: List[float]) -> List[float]:
+    """
+    Given a list of numbers (of at least two elements), apply a linear transform to that list,
+    such that the smallest number will become 0 and the largest will become 1.
+    """
+    if len(numbers) < 2:
+        raise ValueError("At least two numbers are required to compute the range.")
+    mn, mx = min(numbers), max(numbers)
+    return [(x - mn) / (mx - mn) for x in numbers]

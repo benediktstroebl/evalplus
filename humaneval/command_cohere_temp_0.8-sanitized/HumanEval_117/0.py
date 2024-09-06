@@ -1,24 +1,14 @@
 def count_consonants(word):
-    """
-    Helper function to count the number of consonants in a word.
-    """
-    total = 0
+    cnt = 0
     for char in word:
-        if char in 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ':
-            total += 1
-    return total
+        if char != 'a' and char != 'e' and char != 'i' and char != 'o' and char != 'u' and \
+                not (char.isalpha() and char.lower() == 'w'):
+            cnt += 1
+    return cnt
 def select_words(s, n):
-    """
-    Returns a list of all words from string s that contain exactly n consonants, 
-    in order these words appear in the string s.
-    If the string s is empty then the function should return an empty list.
-    """
-    words = s.split(' ')
+    words = s.split()
     result = []
-
     for word in words:
-        consonant_count = count_consonants(word)
-        if consonant_count == n:
+        if count_consonants(word) == n:
             result.append(word)
-
     return result

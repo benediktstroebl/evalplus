@@ -1,0 +1,2 @@
+import unittest
+from calculate_product import multiply

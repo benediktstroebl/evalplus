@@ -1,0 +1,1 @@
+This code has a self-contained function that creates a palindrome given a string. The tests ensure the's a valid solution to the function. The tests in this code are also valid palindromes.

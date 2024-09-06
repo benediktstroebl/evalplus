@@ -13,8 +13,15 @@ def is_prime(number):
     return True
 def prime_length(string):
     string = str(string)
-    # converting string to int to check if it's a prime number
-    if is_prime(int(string)):
-        return True
-    else:
+    if len(string) <= 1:
         return False
+    if len(string) == 2:
+        return True
+    if len(string) % 2 == 0:
+        return False
+    for char in string:
+        if is_prime(ord(char)):
+            continue
+        else:
+            return False
+    return True

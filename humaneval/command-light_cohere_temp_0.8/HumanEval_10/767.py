@@ -1,0 +1,3 @@
+A solution is a palindrome of the input string. The function 'make_palindrome' takes a string as input and checks if the string is the same when reversed, if so, it returns True, indicating the input string is a palindrome. Otherwise, it returns False. 
+
+The function works by finding the longest palindrome prefix of the input string and then appending the reversed string prefix to the end of the input string. This algorithm ensures that the longest palindrome is formed correctly.

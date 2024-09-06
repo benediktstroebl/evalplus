@@ -1,0 +1,5 @@
+```python
+def solution(lst):
+    return sum(el for el in lst if el % 2 == 1 and lst.index(el) % 2 == 0)
+```
+This Python script defines a function called solution, which takes a list of numbers as input. This function calculates the sum of all odd numbers present in even positions within the list. To achieve this, it employs a list comprehension, iterating through each element in the input list. For each number, it checks if the number is odd (using the condition `el % 2 == 1`) and whether it appears in an even position in the list (`lst.index(el) % 2 == 0`). If both conditions are met, the number is included in the sum, and the total is returned as the function's result. The function operates without affecting the original list, providing a concise and efficient solution to the problem.  This effectively solves the problem as stated in the markdown code block and aligns with the examples provided.

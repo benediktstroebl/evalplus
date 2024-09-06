@@ -1,0 +1,2 @@
+def change_base(x, base):
+    return str(x) in ['0', '1'] and str(x) or bin(x)[2:].zfill(len(bin(x)[2:]) + (len(str(x)) - 2)) if base == 2 else f'{x:b{len(str(x))}}'[:len(str(x))] if base == 10 else str(x) in '87' and '7' * (len(str(x)) - 2) or change_base(int(str(x)[:-1]) * base, 10)[:len(str(x))]

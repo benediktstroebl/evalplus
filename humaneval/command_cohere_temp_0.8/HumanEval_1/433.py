@@ -1,0 +1,30 @@
+```python
+from typing import List
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    stack = []
+    current_group = []
+    result = []
+    
+    for char in paren_string:
+        if char == '(':
+            stack.append(current_group)
+            current_group = []
+        elif char == ')':
+            if not stack:
+                result.append(''.join(current_group))
+            else:
+                pre_group = stack.pop()
+                current_group.extend(pre_group)
+                if not stack:
+                    result.append(''.join(current_group))
+            current_group = []
+        else:
+            current_group.append(char)
+    
+    return result
+```
+
+The algorithm uses a stack to track open parentheses and creates a corresponding list of strings where each string represents a separate group of parentheses. It is designed to handle different input scenarios, such as nested and nested-within-nested parentheses, and efficiently produce the desired output.
+
+This approach ensures that the code is efficient in terms of both time and space complexity, making it suitable for handling large and complex inputs while maintaining a clear and readable implementation.

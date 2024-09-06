@@ -1,23 +1,31 @@
 def minPath(grid, k):
     N = len(grid)
-    dp = [[float('inf')] * N for _ in range(k + 1)]
-    start = [(-1, -1)]
+    if k > N:
+        return []
 
-    for i in range(k + 1):
+    def dfs(r, c, path, visited, dp):
+        if len(path) == k:
+            return True
+        if (r, c) in visited:
+            return False
+        visited[r, c] = True
+
+        for nr, nc in [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]:
+            if 0 <= nr < N and 0 <= nc < N and grid[nr][nc] > grid[r][c] and dfs(nr, nc, path+[grid[nr][nc]], visited, dp):
+                return True
+        
+        # Store the candidate path
+        dp[r][c] = True
+        
+        return False
+
+    visited = [[False for _ in range(N)] for _ in range(N)]
+    dp = [[False for _ in range(N)] for _ in range(N)]
+    path = []
+
+    for i in range(N):
         for j in range(N):
-            for nei in [(j - 1, -1), (j + 1, -1), (j - 1, 0), (j - 1, 1), (j, 1), (j + 1, 1), (j + 1, 0)]:
-                if 0 <= nei[0] < N and 0 <= nei[1] < N:
-                    if grid[nei[0]][nei[1]] < dp[i][j]:
-                        start = nei
-                        dp[i][j] = grid[nei[0]][nei[1]]
+            if not visited[i][j] and not dfs(i, j, path, visited, dp):
+                return []
 
-    res = []
-    while k:
-        nei = start
-        while nei != (nei[0], nei[1]):
-            res.append(dp[k][nei[0]])
-            nei = (nei[0] + dp[k][nei[0]], nei[1] + dp[k][nei[0]])
-        res.append(dp[k][nei[0]])
-        k -= 1
-
-    return res[::-1]
+    return path[::-1]

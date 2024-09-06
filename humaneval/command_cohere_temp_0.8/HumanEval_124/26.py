@@ -1,0 +1,37 @@
+Here is a Python script with a self-contained function that solves the problem and passes corresponding tests:
+```python
+import re
+
+def valid_date(date):
+    """
+    Validates a given date string and returns True if the date is valid, otherwise False.
+    """
+    if not date:
+        return False
+    match = re.match(r"^(\d?\d?)[-/](\d?\d?)[-/](\d{4})$", date)
+    if not match:
+        return False
+    day, month, year = map(int, match.groups())
+    
+    # Month ranges
+    if month < 1 or month > 12:
+        return False
+    if month == 2 and day not in range(1, 30):
+        return False
+    if month in (1, 3, 5, 7, 8, 10, 12) and day not in range(1, 32):
+        return False
+    if month in (4, 6, 9, 11) and day not in range(1, 31):
+        return False
+
+    return True
+```
+
+This code uses regular expressions to validate the date format first, 
+and then checks the constraints on days and months. 
+It returns True if all constraints are satisfied, 
+and False otherwise.
+
+You can use this function in your code to validate dates by calling it and passing a date string as an argument, 
+like this: `valid_date('06-04-2020')`. 
+
+This will return True for valid dates and False for invalid ones.

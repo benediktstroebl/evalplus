@@ -1,0 +1,1 @@
+This Python code above contains a self-contained function called **`make_palindrome(string)`** that creates a palindrome of a given string. It does this in an way that is both efficient and straightforward.

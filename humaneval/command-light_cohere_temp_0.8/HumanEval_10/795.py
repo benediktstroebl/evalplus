@@ -1,0 +1,1 @@
+The code seems to be correct and passes all the test cases. It has a particular algorithm to create a palindrome using the prefix and suffix idea.

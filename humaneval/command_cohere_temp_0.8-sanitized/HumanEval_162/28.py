@@ -1,0 +1,2 @@
+import unittest
+from bibtex_to_markdown import string_to_md5

@@ -1,0 +1,9 @@
+def strange_sort_list(lst):
+    """
+    Do the strange sort on the list of integers and return the result. 
+    Strange sorting is when you start with the minimum value,
+    then take the maximum of the remaining integers, then the minimum, and so on.
+    """
+    if len(lst) == 0:
+        return lst
+    return [min(lst[0:len(lst)//2])] + [max(lst[len(lst)//2+1:])] + strange_sort_list(lst[len(lst)//2+1:])

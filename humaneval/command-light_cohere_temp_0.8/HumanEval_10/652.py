@@ -1,0 +1,3 @@
+The code includes a function called `make_palindrome`, which accepts a string and returns a new string with the shortest palindrome generated from the input. It utilizes a different approach, which checks the length of the prefix that comes before the palindrome and appends the reverse of that prefix to form the palindrome. 
+
+This is a self-contained Python script with a function that solves the problem of making the shortest palindrome from a given string.

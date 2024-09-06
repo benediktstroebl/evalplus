@@ -1,0 +1,20 @@
+```python
+from typing import List
+
+def parse_music(music_string: str) -> List[int]:
+    """
+    Input to this function is a string representing musical notes in a special ASCII format.
+    Your task is to parse this string and return list of integers corresponding to how many beats does each
+    last.
+
+    Here is legend:
+    'o' - whole note, lasts four beats
+    'o|' - half note, lasts two beats
+    '.|' - quater note, lasts one beat
+
+    >>> [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]
+    """
+    return [int(x) for x in music_string.find(lambda x: x.pmatch(r'
+    pattern): int(x)
+    for r in ['o', 'o|', '|'])
+```

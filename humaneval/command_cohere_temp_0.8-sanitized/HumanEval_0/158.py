@@ -1,0 +1,2 @@
+import unittest
+from diviner import has_close_elements

@@ -1,0 +1,22 @@
+from typing import List
+def separate_paren_groups(paren_string: str) -> List[str]:
+    """Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+    separate those groups into separate strings and return the list of those.
+    Separate groups are balanced (each open brace is properly closed) and not nested within each other
+    Ignore any spaces in the input string."""
+    separate_groups = []
+    stack = []
+    
+    for char in paren_string:
+        if char == '(':
+            stack.append('(')
+        elif char == ')':
+            if not stack or stack.pop() != '(':
+                separate_groups.append('')
+            if not stack:
+                separate_groups.append('')
+            continue
+        separate_groups[-1] += char
+    
+    return separate_groups
+paren_string = '( ) (( )) (( )( ))'

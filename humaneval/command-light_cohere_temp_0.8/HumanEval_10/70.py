@@ -1,0 +1,2 @@
+The function is_palindrome checks if a given string is a palindrome, and the function make_palindrome finds the shortest palindrome using the approach you provided. 
+The provided solution is efficient and passes all the test cases, which is great!

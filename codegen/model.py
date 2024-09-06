@@ -3,6 +3,7 @@ import os
 from abc import ABC, abstractmethod
 from typing import List
 from warnings import warn
+import backoff
 
 import openai
 
@@ -338,7 +339,7 @@ from model import DecoderBase
 import traceback
 
 class CohereChatDecoder(DecoderBase):
-    def __init__(self, name: str, max_concurrent: int = 40, **kwargs) -> None:
+    def __init__(self, name: str, max_concurrent: int = 20, **kwargs) -> None:
         super().__init__(name, **kwargs)
         self.client = cohere.AsyncClient(os.getenv("COHERE_API_KEY"))
         self.semaphore = asyncio.Semaphore(max_concurrent)
@@ -355,20 +356,22 @@ class CohereChatDecoder(DecoderBase):
             {"role": "USER", "message": message},
         ]
 
+        @backoff.on_exception(
+            backoff.expo,
+            (Exception, asyncio.TimeoutError),
+            max_tries=5,
+            max_time=30
+        )
         async def make_api_call():
             async with self.semaphore:
-                try:
-                    response = await self.client.chat(
-                        chat_history=chat_history,
-                        message=self.response_prefix,
-                        model=self.name,
-                        max_tokens=self.max_new_tokens,
-                        temperature=self.temperature,
-                    )
-                    return response.text
-                except Exception as e:
-                    print(f"Error in Cohere API call: {e}")
-                    return None
+                response = await self.client.chat(
+                    chat_history=chat_history,
+                    message=self.response_prefix,
+                    model=self.name,
+                    max_tokens=self.max_new_tokens,
+                    temperature=self.temperature,
+                )
+                return response.text
 
         tasks = [asyncio.create_task(make_api_call()) for _ in range(num_samples)]
         outputs = await asyncio.gather(*tasks)

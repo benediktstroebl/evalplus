@@ -1,0 +1,21 @@
+```python
+from typing import List
+
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    """ Filter an input list of strings only for ones that start with a given prefix.
+
+    >>> filter_by_prefix([('ab', 'cd'), ('cde',), 'a', 'array'), 'a')
+    ['ab', 'cde']
+
+    >>> filter_by_prefix([('ab', 'cd'), ('cde',), 'a', 'array'], 'd')
+    []
+
+    >>> filter_by_prefix([('ab', 'cd'), ('cde',), 'a', 'array'], 'x')
+    []
+
+    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], '')
+    []
+    """
+    return [string for string in strings if string[0] == prefix]
+```

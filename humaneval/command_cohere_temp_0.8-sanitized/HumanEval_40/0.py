@@ -1,11 +1,9 @@
-def triples_sum_to_zero(lst):
+def triples_sum_to_zero(l: list):
+    # Write your code here. Read the hole output to see the full solution.
     seen = set()
-    for a in lst:
-        for b in lst:
-            if a == b:
-                continue
-            for c in lst:
-                if a + b == c and (a, b, c) not in seen and (b, c, a) not in seen and (c, a, b) not in seen:
-                    return True
-        seen.add(a)
+    for a, b in itertools.combinations(l, 2):
+        if a + b == 0 and (a, b) not in seen:
+            seen.add((a, b))
+            if len(seen) == 3:
+                return True
     return False

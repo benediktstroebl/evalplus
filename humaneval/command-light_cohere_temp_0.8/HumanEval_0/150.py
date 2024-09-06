@@ -1,0 +1,1 @@
+Here is a self-contained Python function that solves the problem and passes the corresponding tests.

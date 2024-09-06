@@ -1,0 +1,5 @@
+```python
+def strange_sort_list(lst):
+    # sort the list in alternating patterns: min, max, min, max...
+    return [min(lst[i:]) if i % 2 == 0 else max(lst[:i]) for i in range(1, len(lst))]
+```

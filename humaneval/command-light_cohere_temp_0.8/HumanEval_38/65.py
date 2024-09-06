@@ -1,0 +1,1 @@
+This code provides a self-contained solution to the problem you described.

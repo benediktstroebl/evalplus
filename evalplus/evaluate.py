@@ -296,7 +296,7 @@ def evaluate(flags):
 
     pass_at_k = {
         f"pass@{k}": estimate_pass_at_k(total, base_correct, k).mean()
-        for k in [1, 10, 100]
+        for k in [1, 10, 100, 200]
         if total.min() >= k
     }
     cprint(f"{flags.dataset} (base tests)", "red")
@@ -307,7 +307,7 @@ def evaluate(flags):
         cprint(f"{flags.dataset}+ (base + extra tests)", "green")
         pass_at_k = {
             f"pass@{k}": estimate_pass_at_k(total, np.array(new_correct), k).mean()
-            for k in [1, 10, 100]
+            for k in [1, 10, 100, 200]
             if (total >= k).all()
         }
         for k, v in pass_at_k.items():

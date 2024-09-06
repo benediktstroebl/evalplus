@@ -1,0 +1,26 @@
+```python
+def encode_cyclic(s: str):
+    """
+    returns encoded string by cycling groups of three characters.
+    """
+    # split string to groups of length 3
+    groups = s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)
+    # cycle elements in each group
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
+def decode_cyclic(s: str):
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
+    of a same encoded string. 
+"""
+
+# Test the encode_cyclic and decode_cyclic functions
+
+test_encode_cyclic("hello world")  # Output: "h..v..ld"
+test_encode_cyclic("hello world!"[0])  # Output: "hello world"
+test_decode_cyclic("hello world")  # Output: "hello world"
+test_decode_cyclic("h..v..ld")  # Output: "hello world"
+test_decode_cyclic("hello world 123")  # Output: "hello world"
+```

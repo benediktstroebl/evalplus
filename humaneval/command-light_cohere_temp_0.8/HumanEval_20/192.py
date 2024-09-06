@@ -1,0 +1,9 @@
+```python
+from typing import List, Tuple
+
+def find_closest_elements(numbers: List[float]):
+    """ From a supplied list of numbers (of length at least two) select and return two that are the closest to each
+    other and return them in order (smaller number, larger number).
+
+    :return (smallest, largest)
+```

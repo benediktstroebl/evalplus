@@ -1,0 +1,14 @@
+```python
+def sort_third(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indic that are not divisible by three, while its values at the indic that are divisible by three are equal to the values of the corresponding indic of l, but sorted.
+    >>> sorted([1, 2, 3])
+    [1, 2, 3]
+    >>> sorted([5, 6, 3, 4, 8, 9, 2])
+    [2, 6, 3, 4, 8, 9, 5]
+    """
+    def unique_trithem_third(lst):
+        return [x for x in lst if x not in [3, 6]]
+    lst = unique_trithem_third(l)
+    return sorted(lst)
+```

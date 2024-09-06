@@ -1,0 +1,14 @@
+```python
+from typing import List
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    """
+    From a given list of integers, generate a list of rolling maximum elements found until a given moment in the sequence.
+    >>> numbers = [1, 2, 3, 2, 3, 4, 2]
+    >>> rolling_max(numbers)
+    [1, 2, 3, 3, 3, 4, 4]
+    """
+
+    max_numbers = [x for x in numbers if x == numbers[-1]]
+    return [x for x in numbers if x in max_numbers and x > max_numbers[0]]
+```

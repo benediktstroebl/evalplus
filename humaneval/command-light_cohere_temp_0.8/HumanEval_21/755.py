@@ -1,0 +1,26 @@
+```python
+from typing import List
+
+def rescale_to_unit(numbers: List[float]):
+    """ Given list of numbers (of at least two elements), apply a linear transform to that list,
+    such that the smallest number will become 0 and the largest will become 1
+    
+    numbers = [n / (n + 1) for n in numbers]
+    return [x / (x + 1) for x in numbers]
+
+# Test
+def test_rescale_to_unit(test_numbers: List[float]):
+    """ Test the rescale_to_unit function
+    
+    expected = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    test.75
+   0)
+    
+    actual = [0.296813, 0.0, 0.0, 0.0]
+    
+    assert expected == actual
+   fails = True
+    return fails
+
+test_rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])
+```

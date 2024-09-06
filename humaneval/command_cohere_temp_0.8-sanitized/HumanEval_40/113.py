@@ -1,0 +1,13 @@
+def triples_sum_to_zero(lst):
+    # Write your code here. Read the offline conversation for hints if needed.
+    # Triple format is (a, b, c)
+    seen = set()
+    for a in lst:
+        for b in lst:
+            if a == b:
+                continue
+            for c in lst:
+                if a + b + c == 0 and (a, b, c) not in seen:
+                    seen.add((a, b, c))
+                    return True
+    return False

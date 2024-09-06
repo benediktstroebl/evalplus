@@ -1,0 +1,1 @@
+This script defines two functions: encode_cyclic and decode_cyclic, which perform cyclic encoding and decoding of the input string, respectively.

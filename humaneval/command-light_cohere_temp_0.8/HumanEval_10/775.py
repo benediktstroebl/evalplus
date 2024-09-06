@@ -1,0 +1,1 @@
+Here is a Python script that includes a self-contained function to solve the problem of checking if a given string is a palindrome and passes the tests:

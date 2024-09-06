@@ -1,0 +1,5 @@
+```python
+def compare(game, guess):
+    return [abs(x-y) if x!=y else 0 for x,y in zip(game,guess)]
+```
+This function takes two equal-length lists, `game` and `guess`, where each element corresponds to the actual outcome of a match and the guessed outcome, respectively. It returns a list where each element is the absolute difference between the guess and the actual result if they don't match, and 0 if the guess was correct. The code uses `zip` to iterate through pairs of corresponding elements from both lists. And uses `abs` to calculate the absolute difference between the pairs of elements, but only if they don't match.  The overall time complexity of the given implementation is O(n), where n is the length of the two passed arrays.  This is because we iterate through every element of both arrays only once, to compare them.  Also, for each element, the computation of absolute differences (if they are not equal) takes constant time.  Thus, the overall complexity is O(n).  This implementation ensures that the correct result is returned based on the provided specifications.

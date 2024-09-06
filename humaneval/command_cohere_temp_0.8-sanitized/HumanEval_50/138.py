@@ -1,0 +1,3 @@
+import unittest
+def decode_shift(s: str):
+    return s.translate(str.maketrans("abcdefghijklmnopqrstuvwxyz", "quotihgfedccbkliuz"))

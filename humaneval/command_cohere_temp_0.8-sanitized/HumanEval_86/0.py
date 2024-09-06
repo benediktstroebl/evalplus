@@ -1,4 +1,7 @@
 def anti_shuffle(s):
     words = s.split()
-    sorted_alphabets = ''.join(sorted(word, key=str.ascii_lower))
-    return ' '.join(words for word in words if word == sorted_alphabets)
+    ordered = ' '.join(char_ordered(word) for word in words)
+    return ordered
+def char_ordered(word):
+    ascii_sorted = [char for char in word if char != ' ']
+    return ''.join(ascii_sorted)

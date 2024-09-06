@@ -1,0 +1,1 @@
+This is a great solution to the problem! It's a simple and efficient algorithm to make a palindrome from a given string.

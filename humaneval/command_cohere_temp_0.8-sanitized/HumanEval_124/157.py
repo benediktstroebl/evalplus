@@ -1,0 +1,26 @@
+import re
+def valid_date(date):
+    """
+    Validates a given date string and returns True if the date is valid, otherwise False.
+    """
+    if not date:
+        return False
+    try:
+        year, month, day = map(int, re.match(r'(\d{4})-(\d{1,2})-(\d{1,2})', date).groups())
+    except AttributeError:
+        return False
+    if not 1 <= month <= 12:
+        return False
+    if month == 2 and day not in [1, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]:
+        return False
+    if month in [1, 3, 5, 7, 8, 10, 12] and day not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
+        return False
+    if month in [4, 6, 9, 11] and day not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]:
+        return False
+    if month == 2 and day > 29:
+        return False
+    if not 1000 <= year <= 9999:
+        return False
+    if not day <= 31:
+        return False
+    return True

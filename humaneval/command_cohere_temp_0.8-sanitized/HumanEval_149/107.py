@@ -1,0 +1,10 @@
+def sorted_list_sum(lst):
+    lst_new = []
+    for i in lst:
+        if len(i) % 2 == 0:
+            lst_new.append(i)
+    lst_new.sort()
+    for i in range(len(lst_new)-1):
+        if lst_new[i] == lst_new[i+1]:
+            lst_new[i+1] += lst_new[i]
+    return lst_new

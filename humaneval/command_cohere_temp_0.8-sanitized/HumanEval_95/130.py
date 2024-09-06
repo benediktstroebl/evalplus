@@ -1,0 +1,1 @@
+from func import check_dict_case

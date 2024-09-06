@@ -1,0 +1,15 @@
+```python
+from typing import List
+
+def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    for op in operations:
+        balance += op
+        if balance < 0:
+            return True
+    return False
+```
+
+The code defines a function `below_zero` that takes a list of operations `List[int]` as an argument. It iterates through each operation in the list and simulates the effect of that operation on a bank account balance. If at any point the balance falls below zero, it immediately returns `True`, indicating that the account balance went below zero at least once. If the balance never falls below zero after processing all operations, it returns `False`. 
+
+The function's behavior is demonstrated through inline examples that showcase how it behaves for various input operation lists, thus providing clarity on its expected functionality.

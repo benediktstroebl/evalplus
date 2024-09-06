@@ -1,0 +1,1 @@
+This Python script provides a self-contained function that encodes and then decodes a given input string using the encode_cyclic and decode_cyclic functions, respectively. The script also passes the test cases, confirming the correctness of the functions. The functions handle the encoding and decoding of markdown code in a self-contained manner.

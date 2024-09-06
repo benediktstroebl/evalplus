@@ -1,0 +1,41 @@
+Here is a Python script that defines a self-contained function that solves the problem of encoding and decoding markdown code using cyclic groups of three characters:
+```python
+def encode_cyclic(s: str):
+    """
+    returns encoded string by cycling groups of three characters.
+    """
+    # split string to groups Each of length 3.
+    groups = s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)
+    # cycle elements in each group. Unless group has fewer elements than 3.
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
+def decode_cyclic(s: str):
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
+    Brute encoding decoding.
+    """
+    return decoded string.
+    """
+
+def test_encode_decode():
+    # encoding
+    markdown = """
+    # *  *
+    # ** 
+    # *** 
+    # **** 
+    *** /
+    # \
+    *** 
+    
+    """
+    encoded = encode_cyclic(markdown)
+    assert encoded == "**.---**/.*****/.""
+    # decoding
+    decoded = decode_cyclic(encoded)
+    assert decoded == markdown
+```
+
+The `test_encode_decode` function is designed to test the `encode_cyclic` and `decode_cyclic` functions. The `markdown` string is encoded using the `encode_cyclic` function, and then it is decoded using the `decode_cyclic` function. The two assertions check that encoded and decoded strings are equal.

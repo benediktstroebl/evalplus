@@ -1,0 +1,11 @@
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+    res = ''
+    for s in strings:
+        res += s
+    return res

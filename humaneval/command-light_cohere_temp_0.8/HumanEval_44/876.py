@@ -1,0 +1,1 @@
+Here is a self-contained Python script that defines a function `change_base` to convert a number to a different base. The function uses the `int` and `base` arguments to specify the base to use for the conversion.

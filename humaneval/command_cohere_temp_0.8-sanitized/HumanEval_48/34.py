@@ -1,0 +1,2 @@
+import unittest
+from palindrome_checker import is_palindrome

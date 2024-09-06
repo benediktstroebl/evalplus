@@ -1,0 +1,7 @@
+```python
+def greatest_common_divisor(a, b): 
+    while b != 0:
+        d = b 
+        b = a % b 
+    return d
+```

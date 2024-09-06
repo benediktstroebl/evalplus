@@ -1,0 +1,19 @@
+```python
+def sort_even(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the odd index, while its values at the even index are equal
+    to the values of the even index of l, but sorted.
+    >>> sorted([1, 2, 3])
+    [1, 2, 3]
+    >>> sorted([5, 6, 3, 4])
+    [3, 6, 5, 4]
+    >>> l = [3, 6, 5, 4, 1, 2]
+    >>> sort_even(l)
+    [2, 3, 4, 1, 6]
+    """
+
+def test_sort_even():
+    """This function tests the sort_even function by passing in a list of lists."""
+    test_list = [[1, 2], [3, 6], [5, 6, 4]]
+    assert sort_even(test_list) == [[1, 2], [3, 6], [5, 6, 4]]
+```

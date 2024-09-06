@@ -1,0 +1,1 @@
+This code passes all the test cases for the is_palindrome function and creates a solution with the make_palindrome function.

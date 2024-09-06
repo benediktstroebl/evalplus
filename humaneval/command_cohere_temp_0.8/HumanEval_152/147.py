@@ -1,0 +1,5 @@
+```python
+def compare(game, guess):
+    return [abs(x-y) if x != y else 0 for x, y in zip(game, guess)]
+```
+This Python script defines a function called `compare` which takes two arrays, `game` and `guess`, as input. It returns a list where each element represents the difference between the corresponding elements in the `game` and `guess` arrays, or 0 if the guess was correct. To achieve this, the function uses Python's `zip` function to iterate through corresponding pairs of elements in the `game` and `guess` arrays. For each pair, it calculates the absolute difference between the elements, using the `abs` function, and assigns the result to the corresponding element in the resulting list, if the elements are different. If the elements are the same, it assigns 0 to the corresponding element in the resulting list.

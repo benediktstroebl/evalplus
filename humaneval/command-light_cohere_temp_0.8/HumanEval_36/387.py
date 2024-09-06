@@ -1,0 +1,1 @@
+The solution is a Python script that defines a function called `fizz_buzz`, which returns the count of the digit 7 in integers less than a given number that are divisible by 11 or 13. The function uses a test cases with the function, passing in numbers 50, 78, and 79, and returning the expected results (0, 2, and 3, respectively).

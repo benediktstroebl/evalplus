@@ -1,0 +1,1 @@
+The function fizz_buzz appears first, followed by the three test cases. The function determines the issue is the number of times the digit 7 appears in integers less than the input number that are divisible by 11 or 13. It returns 0 for numbers less than 50, 2 for numbers less than 78, and 3 for numbers less than 79.

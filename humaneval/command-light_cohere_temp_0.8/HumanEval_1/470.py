@@ -1,0 +1,1 @@
+I have implemented the function `separate_paren_groups` that splits the provided string into separate groups based on balanced parentheses and tests the function with an example string.

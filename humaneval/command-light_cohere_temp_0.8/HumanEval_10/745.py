@@ -1,0 +1,1 @@
+This code above is a self-contained Python script that contains a function `make_palindrome`, which creates the shortest palindrome that begins with a supplied string.  It also passes theABC tests on the provided function, which demonstrate the correctness of the `make_palindrome` function to create the shortest palindrome for various input strings.

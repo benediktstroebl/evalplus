@@ -1,0 +1,26 @@
+```python
+def int_to_mini_roman(n):
+    if n < 1000 and n > 0:
+        roman_map = [
+            ('i', 1), ('ii', 2), ('iii', 3), ('iv', 4), ('v', 5), ('vi', 6), ('vii', 7),
+            ('viii', 8), ('ix', 9), ('x', 10), ('xi', 11), ('xii', 12), ('xiii', 13),
+            ('xiv', 14), ('xv', 15), ('xvi', 16), ('xvii', 17), ('xviii', 18), ('xix', 19),
+            ('xx', 20), ('xxi', 21), ('xxii', 22), ('xxiii', 23), ('xxiv', 24), ('xxv', 25),
+            ('xxvi', 26), ('xxvii', 27), ('xxviii', 28), ('xxix', 29), ('xxx', 30),
+            ('xlii', 42), ('xliii', 43), ('xliv', 44), ('xlv', 45), ('xlvi', 46), ('xlvii', 47),
+            ('xlviii', 48), ('xlix', 49), ('l', 50), ('li', 51), ('lii', 52), ('liii', 53),
+            ('liv', 54), ('lv', 55), ('lvi', 56), ('lvii', 57), ('lviii', 58), ('lix', 59),
+            ('lx', 60), ('lxi', 61), ('lxii', 62), ('lxiii', 63), ('lxiv', 64), ('lxv', 65),
+            ('lxvi', 66), ('lxvii', 67), ('lxviii', 68), ('lxix', 69), ('lxx', 70),
+            ('lxxi', 71), ('lxxii', 72), ('lxxiii', 73), ('lxxiv', 74), ('lxxv', 75),
+            ('lxxvi', 76), ('lxxvii', 77), ('lxxviii', 78), ('lxxix', 79), ('lxxx', 80),
+            ('xc', 90), ('xci', 91), ('xcii', 92), ('xciii', 93), ('xciv', 94), ('xcv', 95),
+            ('xcvi', 96), ('xcvii', 97), ('xcviii', 98), ('xcix', 99), ('cx', 100),
+            ('cxii', 102), ('cxiii', 103), ('cxiv', 104), ('cxv', 105), ('cxvi', 106),
+            ('cxvii', 107), ('cxviii', 108), ('cxix', 109), ('cxx', 110), ('cxxi', 111),
+            ('cxxii', 112), ('cxxiii', 113), ('cxxiv', 114), ('cxxv', 115), ('cxxvi', 116),
+            ('cxxvii', 117), ('cxxviii', 118), ('cxxix', 119), ('cxxx', 120),
+            ('cxli', 150), ('cxlii', 152), ('cxliii', 153), ('cxliv', 154), ('cxlv', 155),
+            ('cxlvi', 156), ('cxlvii', 157), ('cxlviii', 158), ('cxlix', 159), ('cl', 160),
+            ('cli', 161), ('clii', 162), ('cliii', 163), ('cliv', 164), ('clv', 165),
+            ('clvi', 166), ('clvii', 167), ('clviii', 168), ('clix

@@ -1,0 +1,1 @@
+A complete Python script is provided below, which includes the function **`filter_by_prefix`** and passes all of the test cases.

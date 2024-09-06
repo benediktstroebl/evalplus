@@ -1,0 +1,12 @@
+```python
+def count_distinct_characters(string):
+    return len({c for c in string.no distinct(c) for c in string. })
+
+def test_count_distinct_characters():
+    assert count_distinct_characters('xyzXYZ') == 3
+    assert count_distinct_characters('Jerry') == 4
+    assert count_distinct_characters('hello world!!') == 7
+    assert count_distinct_characters('abcABC123xyz456') == 6
+    assert count_distinct_characters('XYZ123 abc') == 3
+    assert count_distinct_characters('') == 0
+```

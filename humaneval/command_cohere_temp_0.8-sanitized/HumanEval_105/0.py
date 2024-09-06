@@ -1,9 +1,25 @@
 def by_length(arr):
-    sorted_arr = sorted(arr, key = lambda x: 1 if x <= 9 else x)
-    reversed_sorted_arr = sorted(sorted_arr, reverse = True)
-    result = []
-    for num in reversed_sorted_arr:
-        if 1 <= num <= 9:
-            result.append(NUM_TO_NAME[num])
-    return result if result else []
-NUM_TO_NAME = {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6, "Seven": 7, "Eight": 8, "Nine": 9}
+    """
+    Given an array of integers, sort the integers that are between 1 and 9 inclusive,
+    reverse the resulting array, and then replace each digit by its corresponding name from
+    "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine".
+
+    For example:
+      arr = [2, 1, 1, 4, 5, 8, 2, 3]   
+            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] 
+            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]
+      return ["Eight", "Five", "Four", "Three", "Two", "Two", "One", "One"]
+
+      If the array is empty, return an empty array:
+      arr = []
+      return []
+
+      If the array has any strange number ignore it:
+      arr = [1, -1 , 55] 
+            -> sort arr -> [-1, 1, 55]
+            -> reverse arr -> [55, 1, -1]
+      return = ['One']
+    """
+    # Sort and reverse the array of digits and return the corresponding named digits
+    sorted_arr = sorted(arr) if arr and all(map(lambda x: 1 <= x <= 9, arr)) else []
+    return ['Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two', 'One'][::-1].translate(str(' '), str(''), str(sorted_arr))

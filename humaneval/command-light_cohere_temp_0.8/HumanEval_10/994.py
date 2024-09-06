@@ -1,0 +1,1 @@
+This Python code solves the problem of creating a palindrome from a given string and has passed all the corresponding tests.

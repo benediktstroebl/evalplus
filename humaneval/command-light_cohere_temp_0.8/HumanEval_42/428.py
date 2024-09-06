@@ -1,0 +1,12 @@
+```python
+def incr_list(lst):
+    n = len(lst)
+    return [lst[i]+1 for i in range(n)]
+
+# Test the function
+def test_incr_list():
+    assert incr_list([1, 2, 3]) == [2, 3, 4]
+    assert incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [6, 4, 6, 3, 4, 4, 4, 10, 1, 124]
+    assert not incr_list([-1, -2, -3]) or incr_list([1, 2, 3]) == [1, 2, 3] # Should raise ValueError
+    assert not incr_list([]) or incr_list([1, 2, 3]) == [1, 2, 3] # Empty list should return original list
+```

@@ -1,0 +1,5 @@
+```python
+def solution(lst):
+    return sum(x for x in lst if x % 2 and (len(lst) - x + 1) % 2 == 0)
+```
+This Python script defines a function called solution, which takes a list of numbers as input. It is designed to calculate the sum of all odd numbers within the list that appear in even positions. The formula employs a generating expression, created using a generator expression, that iterates through each element in the list using the iterable syntax x for x in lst. The generator expression includes two conditions using the logical AND operator (and): one checks if the element x is odd, and the other checks if the index of x is even (determined by (len(lst) - x + 1) % 2 == 0). The sum function then adds up all the values that satisfy both conditions. The result is the desired sum of odd numbers in even positions within the list.

@@ -1,0 +1,1 @@
+This is an example of a Python function that takes a string as input and returns a boolean indicating whether the string is a palindrome. The function works by comparing the original string with its reverse, and returns True if they are equal.

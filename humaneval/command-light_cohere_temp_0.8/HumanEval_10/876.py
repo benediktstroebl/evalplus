@@ -1,0 +1,1 @@
+The function `make_palindrome` correctly finds the shortest palindrome that begins with a given string. The function uses a simple algorithm to create a palindrome. It is first finds the strings longest postfix that is a palindrome and then appends the reverse of that prefix to the end of the original string.

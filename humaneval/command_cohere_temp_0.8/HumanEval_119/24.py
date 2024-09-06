@@ -1,0 +1,18 @@
+```python
+def match_parens(lst):
+    """
+    You are given a list of two strings, both strings consist of open
+    parentheses '(' or close parentheses ')' only.
+    Your job is to check if it is possible to concatenate the two strings in
+    some order, that the resulting string will be good.
+    A string S is considered to be good if and only if all parentheses in S
+    are balanced. For example: the string '(())()' is good, while the string
+    '())' is not.
+    Return 'Yes' if there's a way to make a good string, and return 'No' otherwise.
+    """
+    lst = list(map(len, lst))
+    if max(lst[0], lst[1]) % 2:
+        return "No"
+    return "Yes"
+```
+The approach checks the length of each string in the list and verifies if the longest length of a single string is odd. If it is, this means that the total parentheses cannot be balanced, and the function returns "No". Otherwise, it returns "Yes". This uses the fact that all parentheses must be balanced and that the sum of the lengths of the two strings must be even, as mentioned in the tips.

@@ -5,21 +5,14 @@ def valid_date(date):
     """
     if not date:
         return False
-    match = re.match(r"^(\d?\d?)[-/](\d?\d?)[-/](\d{4})$", date)
-    if not match:
-        return False
-    day, month, year = map(int, match.groups())
+    mm, dd, yyyy = map(int, re.match(r'(\d\d)-(\d\d)-(\d{4})', date).groups())
     
-    # Date rules
-    if month == 2 and day > 29:
-        return False
-    elif month in (1, 3, 5, 7, 8, 10, 12) and day > 31:
-        return False
-    elif month in (4, 6, 9, 11) and day > 30:
-        return False
-
-    # Month rules
-    if month < 1 or month > 12:
+    # Month range checks
+    if (mm < 1 or mm > 12) or  (
+        (mm == 2 and dd > 29) or 
+        (mm in [1, 3, 5, 7, 8, 10, 12] and dd > 31) or 
+        (mm in [4, 6, 9, 11] and dd > 30)
+    ):
         return False
 
-    return True
+    # Day range checks

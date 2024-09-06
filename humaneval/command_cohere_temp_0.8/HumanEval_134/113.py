@@ -1,0 +1,47 @@
+```python
+def check_if_last_char_is_a_letter(txt):
+    """
+    Create a function that returns True if the last character of a given string is an alphabetical character and is not part of a word, and False otherwise.
+
+    Args:
+        txt (str): The input string to analyze.
+
+    Returns:
+        bool: True if the last character is an alphabetical character and is not part of a word, False otherwise.
+    """
+    # Define the string
+    assert isinstance(txt, str), "Input 'txt' must be a string."
+
+    # Check if the string is empty
+    if not txt:
+        return False
+
+    # Remove trailing spaces, if any
+    while txt and txt.endswith(" "):
+        txt = txt.strip()
+
+    # Check if the last character is alphabetical and not part of a word
+    return not txt.split()[-1].isalnum()
+    ```
+
+The test cases are:
+```python
+# Test Case: Valid - Last character is a standalone alphabetical character.
+test_cases = [
+    ("apple pie", False),
+    ("apple pi e", True),
+    ("apple pi e ", False),
+    ("Strawberryecake", False),
+    ("Hello world!", False),
+    ("Goodbye", True),
+    ("", False),
+    ("abc", False),
+    ("abcd", False),
+    ("abcde", False),
+    ("abcdef", True),
+]
+
+# Run the tests
+for inp, exp in test_cases:
+    assert check_if_last_char_is_a_letter(inp) == exp, f"For input '{inp}', expected {exp}, got {exp}"
+```

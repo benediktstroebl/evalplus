@@ -1,0 +1,1 @@
+Below is a Python script that defines a function `parse_music` which takes a music_string as input and returns a list of integers that correspond to the number of beats in the input music.

@@ -1,0 +1,5 @@
+```python
+def compare(game, guess):
+    return [abs(x-y) if x != y else 0 for x, y in zip(game, guess)]
+```
+This function takes two equal-length lists, `game` and `guess`, where each element corresponds to the real results of the matches and the guesses, respectively. It returns a list where each element is the absolute difference between the guess and the real result if they don't match, and 0 if the guess was correct. The code uses `zip` to iterate through the elements of both lists simultaneously. And, the `abs` function is used to calculate the absolute difference between the corresponding elements in the `game` and `guess` lists. Also, a little bit of code optimization is applied to avoid unnecessary conditions and simplify the code by using `0` as the default value.  This makes the code more efficient and cleaner.

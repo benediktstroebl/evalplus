@@ -1,0 +1,2 @@
+def string_xor(a: str, b: str) -> str:
+    return ''.join(chr(ord(x) ^ ord(y)) for x, y in zip(a, b))

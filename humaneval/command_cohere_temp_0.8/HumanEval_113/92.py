@@ -1,0 +1,11 @@
+```python
+def odd_count(lst):
+    r = [str(len(re.findall(r'1|3|5|7|9', s)))
+          .replace('1', 'the number of odd elements in the string ')
+          .replace('0', 'the number of even elements in the string ')
+          .replace(str(i), 'the number of odd elements in the string ')
+          for i, s in enumerate(lst, 1)]
+    return r
+```
+
+The above `odd_count` function employs regular expressions to detect odd digits and then replaces different placeholders to create the desired result. The external structure of the answer is maintained, and the digit '1' specifies where the odd digits are.

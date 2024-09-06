@@ -1,2 +1,3 @@
 def solve(s):
-    return ''.join(c.swapcase() if c.isalpha() else c for c in s)
+    letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    return s.swapcase() if set(s) & set(letters) == set() else s.swapcase()[letters == 'abcdefghijklmnopqrstuvwxyz']

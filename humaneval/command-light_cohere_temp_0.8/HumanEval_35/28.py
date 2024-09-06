@@ -1,0 +1,12 @@
+```python
+def max_element(lst):
+    """Return maximum element in the list"""
+    return max(lst)
+
+# Test function to check if the max element function works correctly
+def test_max_element():
+    lst = [5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10]
+    expected = 123
+    got = max_element(lst)
+    assert got == expected
+```

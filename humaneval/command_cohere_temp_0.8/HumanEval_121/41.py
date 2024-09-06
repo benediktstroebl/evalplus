@@ -1,0 +1,5 @@
+```python
+def solution(lst):
+    return sum(num for ind, num in enumerate(lst) if ind % 2 == 1 and num % 2 == 1)
+```
+This Python script defines a function called solution, which takes a list of integers as input. It aims to calculate the sum of all odd numbers within even positions in the list. To accomplish this, the function employs a nested enumerate loop. The outer loop, enabled by enumerate, iterates through the list, and the inner loop selects each integer within even positions, denoted by the condition `ind % 2 == 1`. Simultaneously, the nested loop filters out only the odd integers using the condition `num % 2 == 1`. The sum function then adds up all the odd numbers identified in even positions, returning the result as the output. Overall, the solution function efficiently solves the problem as stipulated in the prompt.

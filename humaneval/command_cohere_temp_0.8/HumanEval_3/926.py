@@ -1,0 +1,23 @@
+```python
+from typing import List
+
+def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    for op in operations:
+        balance += op
+        if balance < 0:
+            return True
+    return False
+```
+
+This script defines a function called `below_zero` that takes in a list of integers `operations` as input. It initializes the balance to 0 and then iterates through each value in the input list. It adds each operation to the current balance and checks if it falls below 0. If the balance is ever negative, it immediately returns `True`. If the loop completes without the balance falling below zero, it returns `False`.
+
+Here is an example usage of this function:
+```python
+>>> below_zero([1, 2, 3])
+False
+>>> below_zero([1, 2, -4, 5])
+True
+```
+
+This output is consistent with the original problem statement.

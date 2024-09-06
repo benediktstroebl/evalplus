@@ -1,0 +1,3 @@
+The solution for the problem of finding the shortest palindrome is provided. The make_palindrome function creates a new string with a palindrome pattern by appending the reverse of a prefix to the end of the original string.
+
+The algorithm starts by finding the longest palindrome substring of the given string, then reverses it, and appends it as a prefix. This ensures the strings like a palindrome pattern.

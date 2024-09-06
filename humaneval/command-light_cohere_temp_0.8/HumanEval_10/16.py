@@ -1,0 +1,3 @@
+The code defines a function is_palindrome that returns True if the string is a palindrome and False otherwise. It then defines a algorithm using the longest palindrome prefix that is passed and appends it to the original string.
+
+The tests passed for the `make_palindrome` function are a palindrome starting with an empty string, a palindrome starting with the word "cat", and a palindrome starting with the word "cata".

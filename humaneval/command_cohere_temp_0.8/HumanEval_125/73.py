@@ -1,0 +1,6 @@
+```python
+def split_words(txt):
+    words = txt.split(',') if txt.find(' ') == -1 else txt.split()
+    return words if words != [''] else [] if words == [] else len(min(words, key=len)) % 2 == 0 else len(set(words)) % 2 == 0
+```
+The problem requires splitting a string of words into a list of words, using whitespace or commas as separators. If neither is present, it defaults to odd count of lowercase letters. This code uses Python to define a function `split_words` that takes a string `txt` as input. It checks for the presence of spaces and commas in the string (`txt.find(' ') == -1` and `txt.find(',')`), and splits the string into a list of words using the appropriate delimiter. If there are no words (i.e., an empty list), it returns an empty list. Additionally, if the words exist, it checks whether the number of words is odd to return True for the parity of the length of the minimum word. If there are no words, it checks whether the number of lowercase letters is odd, and returns True if it has odd parity, and vice versa. The result is a list of words or an indication of oddity based on the provided conditions.

@@ -1,0 +1,25 @@
+import math
+def is_prime(n):
+    """
+    Checks if a number is a prime
+    """
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+def hex_key(num):
+    """
+    Counts the number of hexadecimal digits that are primes
+    """
+    # your code here
+    digit_primes = 0
+    num = str(num)
+    # Ensuring input is a string and removing spaces
+    num = num.replace(" ", "")
+    for digit in num:
+        if digit.isupper():
+            if is_prime(int(digit)):
+                digit_primes += 1
+    return digit_primes

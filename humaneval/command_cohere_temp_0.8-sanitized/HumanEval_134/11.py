@@ -1,0 +1,17 @@
+def check_if_last_char_is_a_letter(txt):
+    """
+    Create a function that returns True if the last character of a given string is an alphabetical character and is not part of a word, and False otherwise.
+
+    Args:
+        txt (str): The input string to analyze.
+
+    Returns:
+        bool: True if the last character is an alphabetical character and is not part of a word, False otherwise.
+    """
+    # Define the string minus the last character
+    pre_last_char_txt = txt[:-1]
+    # Check if the last character is alphabetical and not part of a word
+    return (
+        (txt[-1].isalpha()) and 
+        (not txt[-1].lower() in pre_last_char_txt.lower())
+    )

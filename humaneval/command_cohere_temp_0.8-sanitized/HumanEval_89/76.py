@@ -1,0 +1,8 @@
+def encrypt(s):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    encrypted = []
+    for letter in s:
+        index = alphabet.find(letter)
+        encrypted.append(alphabet[index+2:index+2+2])
+    encrypted = ''.join(encrypted)
+    return encrypted

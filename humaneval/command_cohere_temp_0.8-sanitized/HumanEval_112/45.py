@@ -1,0 +1,10 @@
+def reverse_delete(s, c):
+    s_set = set(s)
+    c_set = set(c)
+    # delete characters in s that are in c
+    s = ''.join(char for char in s if char not in c_set)
+    # check if the result string is a palindrome
+    if s == s[::-1]:
+        return s, True
+    else:
+        return s, False

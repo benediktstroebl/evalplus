@@ -1,0 +1,1 @@
+This Python script contains a self-contained function that solves the problem of finding the shortest palindrome for a given string. The function pass all corresponding tests successfully.

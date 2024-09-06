@@ -1,0 +1,31 @@
+```python
+def int_to_mini_roman(n):
+    if n < 1:
+        raise ValueError("Input must be a positive integer")
+    rom_map = [
+        ('i', 1),
+        ('ii', 2),
+        ('iii', 3),
+        ('iv', 4),
+        ('v', 5),
+        ('vi', 6),
+        ('vii', 7),
+        ('viii', 8),
+        ('ix', 9),
+        ('x', 10),
+        ('l', 50),
+        ('c', 100),
+        ('d', 500),
+        ('m', 1000)
+    ]
+    roman = []
+    for map_entry in rom_map:
+        for _ in range(n // map_entry[1]):
+            roman.append(map_entry[0])
+        n %= map_entry[1]
+    if n:
+        roman.append(str(n))
+    return ''.join(roman).lower()
+```
+
+This script features a function called `int_to_mini_roman`, which converts positive integers to their mini roman numeral representations as strings. It iterates through each digit of the input number, repeating certain roman numerals as necessary, and ultimately concatenates them to provide the roman numeral equivalent. The function handles inputs from 1 to 1000, raising a `ValueError` for non-positive integers.

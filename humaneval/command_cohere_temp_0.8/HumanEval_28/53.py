@@ -1,0 +1,18 @@
+```python
+# The following code is copied verbatim from the previous response
+# The code is also formatted to adhere to the Markdown code block formatting
+from typing import List
+
+def concatenate(strings: List[str]) -> str:
+    """
+    Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+    result = ''
+    for string in strings:
+        result += string
+    return result
+```

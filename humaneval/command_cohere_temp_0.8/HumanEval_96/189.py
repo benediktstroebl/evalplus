@@ -1,0 +1,43 @@
+Here is a Python script with a self-contained function that solves the problem and passes corresponding tests:
+```python
+def is_prime(n):
+    """Check if a number is prime"""
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def count_up_to(n):
+    """Implement a function that takes an non-negative integer and returns an array of the first n
+    integers that are prime numbers and less than n."""
+    count = 0
+    primes = []
+    for i in range(2, n + 1):
+        if is_prime(i) and i < n:
+            primes.append(i)
+            count += 1
+            if count == n:
+                break
+    return primes
+```
+
+The `count_up_to()` function iterates through numbers from 2 up to `n`, it checks each number using the `is_prime()` function to verify if it's a prime number and if it's less than `n`. If it is a prime number, it adds it to the `primes` list and increments the `count` counter. Once the counter reaches `n`, it breaks the loop to ensure it doesn't go beyond the requested number of prime numbers.
+
+To test the functionality of the script, let's run the example test cases as provided in the original prompt:
+```python
+test_cases = [(5, [2, 3]), 
+             (11, [2, 3, 5, 7]),
+             (0, []), 
+             (20, [2, 3, 5, 7, 11, 13, 17, 19]), 
+             (1, []), 
+             (18, [2, 3, 5, 7, 11, 13, 17])]
+
+for n, expected in test_cases:
+    assert count_up_to(n) == expected, f"For n={n}, expected={expected}, actual={count_up_to(n)}"
+```
+
+This provides confidence that the function correctly solves the problem based on the provided test cases. 
+
+Feel free to add more test cases to cover edge scenarios and further verify the correctness of the solution.  Let me know if you have any questions or if you'd like me to explain any of the steps in more detail.

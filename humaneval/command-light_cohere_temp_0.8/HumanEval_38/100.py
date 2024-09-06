@@ -1,0 +1,24 @@
+```python
+def encode_cyclic(s: str) -> str:
+    """
+    returns encoded string by cycling groups of three characters.
+    """
+    # split string to groups of three characters each
+    groups = [list(char) for char in s[:(3 * i):min((3 * i + 3), len(s)))] for i in range((len(s) + 2) // 3)]
+    # cycle elements in each group
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
+def decode_cyclic(s: str) -> str:
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
+   
+    perform:
+        test if input is encoded with encode_cyclic
+        test_decode = encode_cyclic(test)
+        print("Test decode:", test_decode)
+        print("Expected:", decode_cyclic(test_decode))
+        assert test_decode == decode_cyclic(test_decode)
+
+```
