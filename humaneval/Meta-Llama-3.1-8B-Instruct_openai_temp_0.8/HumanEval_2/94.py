@@ -1,0 +1,25 @@
+```python
+def truncate_number(number: float) -> float:
+    """
+    Given a positive floating point number, it can be decomposed into 
+    an integer part (largest integer smaller than given number) and decimals 
+    (leftover part always smaller than 1).
+
+    Return the decimal part of the number.
+
+    Args:
+        number (float): A positive floating point number.
+
+    Returns:
+        float: The decimal part of the number.
+    >>> truncate_number(3.5)
+    0.5
+    """
+    int_part = int(number)
+    return number - int_part
+
+# Test the function
+print(truncate_number(3.5))  # Output: 0.5
+print(truncate_number(10.7))  # Output: 0.7
+```
+This script defines the `truncate_number` function which takes a positive floating point number as an argument, truncates the integer part, and returns the decimal part. It then tests the function with two different numbers.

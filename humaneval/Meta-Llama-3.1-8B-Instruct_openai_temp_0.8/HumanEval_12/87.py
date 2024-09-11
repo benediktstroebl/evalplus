@@ -1,0 +1,57 @@
+```markdown
+### Self-Contained Python Script
+#### Longest String in a List
+
+This Python script defines a function `longest` that takes a list of strings as input and returns the longest string. In case of multiple strings of the same length, it returns the first one. If the input list is empty, it returns `None`.
+
+```python
+from typing import List, Optional
+
+
+def longest(strings: List[str]) -> Optional[str]:
+    """
+    Out of list of strings, return the longest one. Return the first one in case of multiple
+    strings of the same length. Return None in case the input list is empty.
+
+    Args:
+        strings (List[str]): A list of strings.
+
+    Returns:
+        Optional[str]: The longest string in the list, or None if the list is empty.
+    """
+    # Check if the input list is empty
+    if not strings:
+        return None
+
+    # Initialize the longest string as the first string in the list
+    longest_str = strings[0]
+
+    # Iterate over the list of strings
+    for string in strings:
+        # If the current string is longer than the longest string found so far, update the longest string
+        if len(string) > len(longest_str):
+            longest_str = string
+
+    # Return the longest string
+    return longest_str
+
+
+### Example Usage
+
+# Test case 1: Empty list
+print(longest([]))  # Expected output: None
+
+# Test case 2: Single string
+print(longest(['a']))  # Expected output: 'a'
+
+# Test case 3: Multiple strings with different lengths
+print(longest(['a', 'bb', 'ccc']))  # Expected output: 'ccc'
+
+# Test case 4: Multiple strings with the same length
+print(longest(['abc', 'abcd']))  # Expected output: 'abc'
+
+# Test case 5: Multiple strings with the same length (first one returned)
+print(longest(['def', 'defg']))  # Expected output: 'def'
+```
+
+This script defines a function `longest` that takes a list of strings as input and returns the longest string. It first checks if the input list is empty and returns `None` if so. Then it initializes the longest string as the first string in the list and iterates over the rest of the list to find the longest string. Finally, it returns the longest string found.

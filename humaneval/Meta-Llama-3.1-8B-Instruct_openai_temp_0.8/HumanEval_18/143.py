@@ -1,0 +1,35 @@
+### Solution
+```python
+def how_many_times(string: str, substring: str) -> int:
+    """
+    Find how many times a given substring can be found in the original string.
+    Count overlapping cases.
+
+    Args:
+        string (str): The original string.
+        substring (str): The substring to search for.
+
+    Returns:
+        int: The number of times the substring can be found in the original string.
+    """
+    if not substring:
+        return 0  # edge case: substring is empty
+    
+    count = 0
+    start = 0
+    while start < len(string):
+        pos = string.find(substring, start)
+        if pos!= -1:
+            count += 1
+            start = pos + 1  # move start position to the end of the found substring
+        else:
+            break
+    
+    return count
+
+# Example use cases:
+print(how_many_times('', 'a'))  # 0
+print(how_many_times('aaa', 'a'))  # 3
+print(how_many_times('aaaa', 'aa'))  # 3
+```
+This script defines a function `how_many_times` that counts the number of times a given substring can be found in the original string, including overlapping cases. It uses a while loop to continuously search for the substring starting from the current position, incrementing the count each time it's found.

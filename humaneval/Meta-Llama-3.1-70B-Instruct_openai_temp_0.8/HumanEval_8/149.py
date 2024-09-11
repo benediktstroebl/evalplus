@@ -1,0 +1,92 @@
+```python
+from typing import List, Tuple
+import math
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """
+    For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.
+    Empty sum should be equal to 0 and empty product should be equal to 1.
+
+    Args:
+        numbers (List[int]): A list of integers.
+
+    Returns:
+        Tuple[int, int]: A tuple containing the sum and product of the integers in the list.
+    """
+    # Initialize sum to 0 (the identity for addition) and product to 1 (the identity for multiplication)
+    total_sum = 0
+    total_product = 1
+    
+    # Iterate over each number in the list
+    for num in numbers:
+        # Add the number to the total sum
+        total_sum += num
+        # Multiply the number to the total product
+        total_product *= num
+    
+    # Return a tuple containing the sum and product
+    return total_sum, total_product
+
+# Test cases
+print(sum_product([]))  # Expected output: (0, 1)
+print(sum_product([1, 2, 3, 4]))  # Expected output: (10, 24)
+```
+Alternatively, you can use built-in Python functions to solve this problem more concisely:
+
+```python
+from typing import List, Tuple
+import math
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """
+    For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.
+    Empty sum should be equal to 0 and empty product should be equal to 1.
+
+    Args:
+        numbers (List[int]): A list of integers.
+
+    Returns:
+        Tuple[int, int]: A tuple containing the sum and product of the integers in the list.
+    """
+    # Use the built-in sum function to calculate the sum
+    total_sum = sum(numbers)
+    # Use the math.prod function to calculate the product (Python 3.8+)
+    total_product = math.prod(numbers, start=1)
+    
+    # Return a tuple containing the sum and product
+    return total_sum, total_product
+
+# Test cases
+print(sum_product([]))  # Expected output: (0, 1)
+print(sum_product([1, 2, 3, 4]))  # Expected output: (10, 24)
+```
+For Python versions earlier than 3.8, you can calculate the product using the functools.reduce function:
+
+```python
+from typing import List, Tuple
+import functools
+import operator
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """
+    For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.
+    Empty sum should be equal to 0 and empty product should be equal to 1.
+
+    Args:
+        numbers (List[int]): A list of integers.
+
+    Returns:
+        Tuple[int, int]: A tuple containing the sum and product of the integers in the list.
+    """
+    # Use the built-in sum function to calculate the sum
+    total_sum = sum(numbers)
+    # Use the functools.reduce function to calculate the product
+    total_product = functools.reduce(operator.mul, numbers, 1)
+    
+    # Return a tuple containing the sum and product
+    return total_sum, total_product
+
+# Test cases
+print(sum_product([]))  # Expected output: (0, 1)
+print(sum_product([1, 2, 3, 4]))  # Expected output: (10, 24)
+```

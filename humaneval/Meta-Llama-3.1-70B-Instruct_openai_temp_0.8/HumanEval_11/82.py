@@ -1,0 +1,46 @@
+```python
+from typing import List
+
+def string_xor(a: str, b: str) -> str:
+    """
+    This function performs binary XOR operation on two binary strings.
+
+    Args:
+        a (str): The first binary string.
+        b (str): The second binary string.
+
+    Returns:
+        str: The result of the binary XOR operation as a string.
+
+    Raises:
+        ValueError: If either a or b is not a binary string.
+
+    Example:
+        >>> string_xor('010', '110')
+        '100'
+    """
+
+    # Check if both inputs are binary strings
+    if not set(a).issubset('01') or not set(b).issubset('01'):
+        raise ValueError("Both inputs must be binary strings")
+
+    # Check if the lengths of the input strings are equal
+    if len(a)!= len(b):
+        raise ValueError("Both inputs must be of the same length")
+
+    # Initialize an empty list to store the result
+    result = []
+
+    # Perform binary XOR operation on each character of the input strings
+    for char_a, char_b in zip(a, b):
+        # Use the XOR operator (^) to perform the binary XOR operation
+        # Convert the result to a string and append it to the result list
+        result.append(str(int(char_a) ^ int(char_b)))
+
+    # Join the characters in the result list into a string and return it
+    return ''.join(result)
+
+
+# Example usage
+print(string_xor('010', '110'))  # Output: '100'
+```

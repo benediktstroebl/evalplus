@@ -1,0 +1,32 @@
+```python
+def digitSum(s):
+    """
+    This function calculates the sum of the ASCII codes of upper case characters in a given string.
+
+    Args:
+        s (str): The input string.
+
+    Returns:
+        int: The sum of the ASCII codes of upper case characters.
+    """
+    # Initialize a variable to store the sum of ASCII codes
+    total_sum = 0
+    
+    # Iterate over each character in the string
+    for char in s:
+        # Check if the character is an upper case letter
+        if char.isupper():
+            # If it's an upper case letter, add its ASCII code to the total sum
+            total_sum += ord(char)
+    
+    # Return the total sum
+    return total_sum
+
+# Test the function with the provided examples
+print(digitSum(""))  # Output: 0
+print(digitSum("abAB"))  # Output: 131
+print(digitSum("abcCd"))  # Output: 67
+print(digitSum("helloE"))  # Output: 69
+print(digitSum("woArBld"))  # Output: 131
+print(digitSum("aAaaaXa"))  # Output: 153
+```

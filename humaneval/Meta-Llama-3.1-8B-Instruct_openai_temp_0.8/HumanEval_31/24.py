@@ -1,0 +1,61 @@
+### Prime Number Checker
+#### Problem Statement
+Check if a given number is prime or not.
+
+#### Solution
+```python
+def is_prime(n):
+    """
+    Return true if a given number is prime, and false otherwise.
+
+    Args:
+        n (int): The number to check.
+
+    Returns:
+        bool: True if the number is prime, False otherwise.
+
+    Example:
+        >>> is_prime(6)
+        False
+        >>> is_prime(101)
+        True
+        >>> is_prime(11)
+        True
+        >>> is_prime(13441)
+        True
+        >>> is_prime(61)
+        True
+        >>> is_prime(4)
+        False
+        >>> is_prime(1)
+        False
+    """
+    if n <= 1:  # Prime numbers are greater than 1
+        return False
+    if n == 2:  # 2 is the only even prime number
+        return True
+    if n % 2 == 0:  # All other even numbers are not prime
+        return False
+    max_divisor = int(n**0.5) + 1  # Only need to check up to the square root of n
+    for d in range(3, max_divisor, 2):  # Only need to check odd numbers
+        if n % d == 0:
+            return False
+    return True
+
+# Test cases
+print(is_prime(6))  # Expected output: False
+print(is_prime(101))  # Expected output: True
+print(is_prime(11))  # Expected output: True
+print(is_prime(13441))  # Expected output: True
+print(is_prime(61))  # Expected output: True
+print(is_prime(4))  # Expected output: False
+print(is_prime(1))  # Expected output: False
+```
+This script defines a function `is_prime(n)` that checks if a given number `n` is prime or not. It uses the following rules to determine if a number is prime:
+
+*   Prime numbers are greater than 1.
+*   2 is the only even prime number.
+*   All other even numbers are not prime.
+*   Only need to check up to the square root of `n` for divisors.
+
+It then provides test cases to verify the correctness of the function.
